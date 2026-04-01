@@ -6,7 +6,7 @@ export const TopNav = () => {
     <nav className="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-outline h-20">
       <div className="flex justify-between items-center px-8 h-full w-full max-w-screen-2xl mx-auto">
         <div className="flex items-center gap-4">
-          <a href="http://localhost:8080/home - V3.html" className="flex items-center gap-1.5 text-sm font-semibold text-slate-500 hover:text-primary transition-colors">
+          <a href="/home-v3.html" className="flex items-center gap-1.5 text-sm font-semibold text-slate-500 hover:text-primary transition-colors">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
             Back
           </a>
@@ -16,7 +16,7 @@ export const TopNav = () => {
         <div className="flex items-center space-x-4">
           {/* Instant Quote Button */}
           <a
-            href="http://localhost:8080/quote-manage.html"
+            href="/quote-manage.html"
             className="hidden lg:inline-flex items-center gap-2 px-4 py-2 bg-primary text-white text-sm font-bold rounded-full hover:brightness-110 active:scale-95 transition-all shadow-sm shadow-primary/30"
           >
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
@@ -24,7 +24,7 @@ export const TopNav = () => {
           </a>
 
           {/* Shopping Cart → quote-manage */}
-          <a href="http://localhost:8080/quote-manage.html" className="relative p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-all duration-200">
+          <a href="/quote-manage.html" className="relative p-2 text-slate-500 hover:bg-slate-50 rounded-full transition-all duration-200">
             <ShoppingCart size={20} />
             <span className="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full border-2 border-white"></span>
           </a>

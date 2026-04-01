@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout | PRECISION CORE</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1978e5",
+                        "primary-hover": "#1669ca",
+                        "on-primary": "#ffffff",
+                        "background": "#f8fafc",
+                        "surface": "#ffffff",
+                        "on-surface": "#1e293b",
+                        "on-surface-variant": "#64748b",
+                        "outline": "#e2e8f0",
+                        "outline-variant": "#f1f5f9",
+                        "success": "#10b981",
+                    },
+                    fontFamily: {
+                        "headline": ["Inter", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                    },
+                    borderRadius: { 
+                        "DEFAULT": "8px", 
+                        "lg": "12px", 
+                        "xl": "16px",
+                        "full": "9999px" 
+                    },
+                    boxShadow: {
+                        'soft': '0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05)',
+                        '3d': '0 10px 30px -5px rgba(25, 120, 229, 0.2), 0 8px 10px -6px rgba(25, 120, 229, 0.1)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #f8fafc;
+            color: #1e293b;
+            font-family: 'Inter', sans-serif;
+        }
+        .card-shadow {
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+            border: 1px solid #f1f5f9;
+        }
+        .input-focus:focus {
+            border-color: #1978e5;
+            box-shadow: 0 0 0 2px rgba(25, 120, 229, 0.1);
+            outline: none;
+        }
+        .model-details {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transform: translateY(-6px);
+            transition: max-height 320ms ease, opacity 240ms ease, transform 320ms ease, margin-top 320ms ease;
+        }
+        .model-details.is-open {
+            opacity: 1;
+            max-height: 220px;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="antialiased bg-slate-50">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-2xl border-b border-outline-variant/30 shadow-[0_2px_15px_rgba(0,0,0,0.03)] flex justify-between items-center px-10 h-20">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tighter text-on-surface italic font-headline cursor-pointer" onclick="window.location.href='/home-v3.html'">NEBULA TECH</span>
+</div>
+<div class="flex items-center gap-6">
+<button onclick="window.location.href='quote-manage.html'" class="bg-primary text-white font-headline px-6 py-2 rounded-xl text-xs font-bold uppercase tracking-widest active:scale-95 duration-200 ease-out shadow-lg shadow-primary/20">
+                Instant Quote
+            </button>
+<div class="flex gap-4 items-center">
+<button class="text-on-surface-variant hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute -top-2 -right-2 bg-primary text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full">1</span>
+</button>
+<a href="/" class="text-on-surface-variant hover:text-primary transition-colors" title="个人中心">
+<span class="material-symbols-outlined text-xl">account_circle</span>
+</a>
+</div>
+</div>
+</nav>
+<main class="pt-28 pb-20 px-4 md:px-8 max-w-7xl mx-auto">
+<div class="mb-6">
+    <a href="quote-manage.html" class="inline-flex items-center gap-1 text-sm font-medium text-slate-500 hover:text-primary transition-colors">
+        <span class="material-symbols-outlined text-lg">arrow_back</span>
+        Back to Quote List
+    </a>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- Main Content: Left Column -->
+<div class="lg:col-span-8 space-y-6">
+<!-- Order Items Card -->
+<section class="bg-white p-6 rounded-lg card-shadow">
+<div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-2">
+<div class="flex flex-col gap-1">
+<h2 class="text-2xl font-bold tracking-tight text-slate-900">Order Details</h2>
+<p class="text-xs text-slate-500">Order # ORD260319-112007</p>
+</div>
+<button id="toggle-all-details" class="inline-flex items-center gap-2 self-start md:self-auto px-4 py-2 rounded-lg border border-slate-200 text-xs font-bold uppercase tracking-wider text-slate-600 hover:text-primary hover:border-primary/30 hover:bg-blue-50/40 transition-all">
+<span class="material-symbols-outlined text-base">unfold_more</span>
+<span id="toggle-all-label">Expand All</span>
+</button>
+</div>
+
+<div class="space-y-4 mt-6">
+<article class="model-card border border-slate-200 rounded-2xl overflow-hidden bg-white" data-model-card>
+<div class="p-5">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-14 h-14 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100 shrink-0">
+<span class="material-symbols-outlined text-slate-300 text-3xl">view_in_ar</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-bold text-sm text-slate-900 truncate" title="90101001-Exhaust-Manifold-Tubing-rev-.step">90101001-Exhaust-Manifold-Tubing-rev-.step</h3>
+<p class="text-[11px] text-slate-500 mt-1">Model 01</p>
+<div class="model-details mt-0 space-y-1 text-[11px] leading-relaxed text-slate-500">
+<p><span class="font-semibold text-slate-700">Dimensions:</span> 303.14 x 156.77 x 102.27 mm</p>
+<p><span class="font-semibold text-slate-700">Material:</span> Stainless Steel 316L / Metallic Gray</p>
+<p><span class="font-semibold text-slate-700">Process:</span> Sand Blasted - Matte</p>
+<p><span class="font-semibold text-slate-700">Quantity:</span> 1</p>
+<p><span class="font-semibold text-slate-700">Price & Lead Time:</span> $215.33, $215.33/piece, 3-5 days</p>
+</div>
+</div>
+</div>
+<button class="toggle-model-details inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-primary hover:text-primary-hover transition-colors shrink-0" type="button" aria-expanded="false">
+<span>Expand</span>
+<span class="material-symbols-outlined text-base transition-transform duration-200">expand_more</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
+<div>
+<label class="flex items-center gap-1 text-[11px] font-medium text-slate-500 mb-2">
+<span class="material-symbols-outlined text-[14px]">attachment</span> Attachments
+</label>
+<div class="bg-slate-50 border border-slate-100 rounded-lg p-3 flex items-center justify-center h-[62px]">
+<p class="text-xs text-slate-400">No attachments</p>
+</div>
+</div>
+<div>
+<label class="flex items-center gap-1 text-[11px] font-medium text-slate-500 mb-2">
+<span class="material-symbols-outlined text-[14px]">chat_bubble_outline</span> Notes
+</label>
+<div class="relative">
+<textarea class="w-full bg-slate-50 border border-slate-200 rounded-lg text-xs p-3 focus:ring-1 focus:ring-primary focus:border-primary text-slate-700 resize-none" placeholder="Add notes here..." rows="2" maxlength="500"></textarea>
+<span class="absolute bottom-2 right-2 text-[10px] text-slate-400">0 / 500</span>
+</div>
+</div>
+</div>
+</div>
+</article>
+
+<article class="model-card border border-slate-200 rounded-2xl overflow-hidden bg-white" data-model-card>
+<div class="p-5">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-14 h-14 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100 shrink-0">
+<span class="material-symbols-outlined text-slate-300 text-3xl">view_in_ar</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-bold text-sm text-slate-900 truncate" title="FUEL RAIL SECONDARY.stp">FUEL RAIL SECONDARY.stp</h3>
+<p class="text-[11px] text-slate-500 mt-1">Model 02</p>
+<div class="model-details mt-0 space-y-1 text-[11px] leading-relaxed text-slate-500">
+<p><span class="font-semibold text-slate-700">Dimensions:</span> 240.00 x 34.00 x 62.00 mm</p>
+<p><span class="font-semibold text-slate-700">Material:</span> Stainless Steel 316L / Metallic Gray</p>
+<p><span class="font-semibold text-slate-700">Process:</span> Sand Blasted - Matte</p>
+<p><span class="font-semibold text-slate-700">Quantity:</span> 1</p>
+<p><span class="font-semibold text-slate-700">Price & Lead Time:</span> $59.00, $59.00/piece, 3-5 days</p>
+</div>
+</div>
+</div>
+<button class="toggle-model-details inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-primary hover:text-primary-hover transition-colors shrink-0" type="button" aria-expanded="false">
+<span>Expand</span>
+<span class="material-symbols-outlined text-base transition-transform duration-200">expand_more</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
+<div>
+<label class="flex items-center gap-1 text-[11px] font-medium text-slate-500 mb-2">
+<span class="material-symbols-outlined text-[14px]">attachment</span> Attachments
+</label>
+<div class="bg-white border border-slate-200 rounded-lg p-2 flex flex-col gap-2 h-[62px] overflow-y-auto">
+<div class="flex items-center justify-between text-xs bg-slate-50 p-1.5 rounded">
+<div class="flex items-center gap-2 truncate">
+<span class="material-symbols-outlined text-[14px] text-blue-500">picture_as_pdf</span>
+<span class="truncate text-slate-700 font-medium">O-ring_seal_specs.pdf</span>
+</div>
+<button class="text-slate-400 hover:text-red-500" type="button"><span class="material-symbols-outlined text-[14px]">close</span></button>
+</div>
+</div>
+</div>
+<div>
+<label class="flex items-center gap-1 text-[11px] font-medium text-slate-500 mb-2">
+<span class="material-symbols-outlined text-[14px]">chat_bubble_outline</span> Notes
+</label>
+<div class="relative">
+<textarea class="w-full bg-white border border-slate-200 rounded-lg text-xs p-3 focus:ring-1 focus:ring-primary focus:border-primary text-slate-700 resize-none" rows="2" maxlength="500">Please ensure the inner channels are completely clear of support material powder. The surface finish is critical for the O-ring seal.</textarea>
+<span class="absolute bottom-2 right-2 text-[10px] text-slate-400">142 / 500</span>
+</div>
+</div>
+</div>
+</div>
+</article>
+
+<article class="model-card border border-slate-200 rounded-2xl overflow-hidden bg-white" data-model-card>
+<div class="p-5">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-14 h-14 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100 shrink-0">
+<span class="material-symbols-outlined text-slate-300 text-3xl">view_in_ar</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-bold text-sm text-slate-900 truncate" title="Turbo_Valve_Housing_A.stl">Turbo_Valve_Housing_A.stl</h3>
+<p class="text-[11px] text-slate-500 mt-1">Model 03</p>
+<div class="model-details mt-0 space-y-1 text-[11px] leading-relaxed text-slate-500">
+<p><span class="font-semibold text-slate-700">Dimensions:</span> 180.60 x 122.40 x 76.30 mm</p>
+<p><span class="font-semibold text-slate-700">Material:</span> Aluminum AlSi10Mg / Natural Silver</p>
+<p><span class="font-semibold text-slate-700">Process:</span> Bead Blasted</p>
+<p><span class="font-semibold text-slate-700">Quantity:</span> 2</p>
+<p><span class="font-semibold text-slate-700">Price & Lead Time:</span> $132.40, $66.20/piece, 4-6 days</p>
+</div>
+</div>
+</div>
+<button class="toggle-model-details inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-primary hover:text-primary-hover transition-colors shrink-0" type="button" aria-expanded="false">
+<span>Expand</span>
+<span class="material-symbols-outlined text-base transition-transform duration-200">expand_more</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
+<div>
+<label class="flex items-center gap-1 text-[11px] font-medium text-slate-500 mb-2">
+<span class="material-symbols-outlined text-[14px]">attachment</span> Attachments
+</label>
+<div class="bg-slate-50 border border-slate-100 rounded-lg p-3 flex items-center justify-center h-[62px]">
+<p class="text-xs text-slate-400">No attachments</p>
+</div>
+</div>
+<div>
+<label class="flex items-center gap-1 text-[11px] font-medium text-slate-500 mb-2">
+<span class="material-symbols-outlined text-[14px]">chat_bubble_outline</span> Notes
+</label>
+<div class="relative">
+<textarea class="w-full bg-slate-50 border border-slate-200 rounded-lg text-xs p-3 focus:ring-1 focus:ring-primary focus:border-primary text-slate-700 resize-none" placeholder="Add notes here..." rows="2" maxlength="500"></textarea>
+<span class="absolute bottom-2 right-2 text-[10px] text-slate-400">0 / 500</span>
+</div>
+</div>
+</div>
+</div>
+</article>
+
+<article class="model-card border border-slate-200 rounded-2xl overflow-hidden bg-white" data-model-card>
+<div class="p-5">
+<div class="flex items-start justify-between gap-4">
+<div class="flex items-center gap-3 min-w-0">
+<div class="w-14 h-14 bg-slate-50 rounded-xl flex items-center justify-center border border-slate-100 shrink-0">
+<span class="material-symbols-outlined text-slate-300 text-3xl">view_in_ar</span>
+</div>
+<div class="min-w-0">
+<h3 class="font-bold text-sm text-slate-900 truncate" title="Cooling_Manifold_Beta.step">Cooling_Manifold_Beta.step</h3>
+<p class="text-[11px] text-slate-500 mt-1">Model 04</p>
+<div class="model-details mt-0 space-y-1 text-[11px] leading-relaxed text-slate-500">
+<p><span class="font-semibold text-slate-700">Dimensions:</span> 128.20 x 95.70 x 64.10 mm</p>
+<p><span class="font-semibold text-slate-700">Material:</span> Titanium Ti64 / Raw Finish</p>
+<p><span class="font-semibold text-slate-700">Process:</span> Support Removal + QC</p>
+<p><span class="font-semibold text-slate-700">Quantity:</span> 1</p>
+<p><span class="font-semibold text-slate-700">Price & Lead Time:</span> $188.90, $188.90/piece, 5-7 days</p>
+</div>
+</div>
+</div>
+<button class="toggle-model-details inline-flex items-center gap-1 text-[11px] font-bold uppercase tracking-wider text-primary hover:text-primary-hover transition-colors shrink-0" type="button" aria-expanded="false">
+<span>Expand</span>
+<span class="material-symbols-outlined text-base transition-transform duration-200">expand_more</span>
+</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
+<div>
+<label class="flex items-center gap-1 text-[11px] font-medium text-slate-500 mb-2">
+<span class="material-symbols-outlined text-[14px]">attachment</span> Attachments
+</label>
+<div class="bg-slate-50 border border-slate-100 rounded-lg p-3 flex items-center justify-center h-[62px]">
+<p class="text-xs text-slate-400">No attachments</p>
+</div>
+</div>
+<div>
+<label class="flex items-center gap-1 text-[11px] font-medium text-slate-500 mb-2">
+<span class="material-symbols-outlined text-[14px]">chat_bubble_outline</span> Notes
+</label>
+<div class="relative">
+<textarea class="w-full bg-slate-50 border border-slate-200 rounded-lg text-xs p-3 focus:ring-1 focus:ring-primary focus:border-primary text-slate-700 resize-none" placeholder="Add notes here..." rows="2" maxlength="500"></textarea>
+<span class="absolute bottom-2 right-2 text-[10px] text-slate-400">0 / 500</span>
+</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- Global Order Note -->
+<div class="mt-6 pt-6 border-t border-slate-100">
+    <label class="text-sm font-bold text-slate-900 mb-3 block">Order Note</label>
+    <textarea class="w-full bg-slate-50 border border-slate-200 rounded-lg text-sm p-4 focus:ring-1 focus:ring-primary focus:border-primary text-slate-700 resize-none min-h-[100px]" placeholder="Add global remarks for this order..."></textarea>
+</div>
+</section>
+<!-- Shipping Address Card -->
+<section class="bg-white p-6 rounded-lg card-shadow">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-bold text-base tracking-tight text-slate-900">Shipping Address (收货地址)</h2>
+<button class="text-primary text-xs font-semibold hover:underline">Manage Addresses</button>
+</div>
+<div class="p-5 border-2 border-primary bg-blue-50/20 rounded-lg relative group">
+<div class="flex justify-between items-start mb-3">
+<div class="flex items-center gap-2">
+<span class="font-bold text-slate-900">Zhang San</span>
+<span class="bg-primary text-white text-[10px] px-1.5 py-0.5 rounded font-medium">Default</span>
+</div>
+<button class="text-primary text-xs font-medium">Edit</button>
+</div>
+<p class="text-sm text-slate-600 leading-relaxed max-w-md">
+                            No. 123 Industrial Tech Park, Haidian District<br/>
+                            Beijing, 100000, China
+                        </p>
+<p class="text-sm text-slate-600 mt-2 font-medium">+86 138-0000-0000</p>
+</div>
+<label class="mt-4 flex items-center gap-2 cursor-pointer group">
+<input class="w-4 h-4 rounded border-slate-300 text-primary focus:ring-primary transition-all" type="checkbox"/>
+<span class="text-sm text-slate-500 group-hover:text-slate-700 transition-colors">Use different billing address</span>
+</label>
+</section>
+<!-- Shipping Method -->
+<section class="bg-white p-6 rounded-lg card-shadow">
+<h2 class="font-bold text-base tracking-tight text-slate-900 mb-6">Shipping Method (物流方式)</h2>
+<div class="space-y-3">
+<label class="flex items-center p-4 cursor-pointer rounded-lg border-2 border-primary bg-blue-50/20 transition-all">
+<input checked="" class="w-4 h-4 border-slate-300 text-primary focus:ring-primary mr-4" name="shipping" type="radio"/>
+<div class="flex flex-col flex-1">
+<span class="text-sm font-bold text-slate-900">Standard Logistics 标准快递</span>
+<span class="text-xs text-slate-500">5-7 Business Days • Includes duties</span>
+</div>
+<span class="text-sm font-bold text-slate-900">$45.00</span>
+</label>
+<label class="flex items-center p-4 cursor-pointer rounded-lg border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all">
+<input class="w-4 h-4 border-slate-300 text-primary focus:ring-primary mr-4" name="shipping" type="radio"/>
+<div class="flex flex-col flex-1">
+<span class="text-sm font-bold text-slate-900">Express Aerospace 加急快递</span>
+<span class="text-xs text-slate-500">2-3 Business Days • Includes duties</span>
+</div>
+<span class="text-sm font-bold text-slate-900">$85.00</span>
+</label>
+</div>
+</section>
+<!-- Payment Method -->
+<section class="bg-white p-6 rounded-lg card-shadow">
+<h2 class="font-bold text-base tracking-tight text-slate-900 mb-6">Payment Instrument (支付方式)</h2>
+<div class="space-y-3">
+<label class="flex items-center p-4 rounded-lg border-2 border-primary bg-blue-50/20 cursor-pointer">
+<input checked="" class="w-4 h-4 border-slate-300 text-primary focus:ring-primary mr-4" name="payment" type="radio"/>
+<div class="flex items-center flex-1">
+<div class="bg-white p-1 rounded border border-slate-100 mr-3">
+<svg class="w-12 h-4" viewbox="0 0 40 15"><path d="M12.9 11.2c.2-.5.4-1 .6-1.5L15 4.3c.1-.4 0-.7-.3-.8-.1-.1-.3-.1-.5-.1h-2.1c-.3 0-.6.2-.7.6l-.3 1.2h-2.9l.4-1.2c.1-.4-.1-.6-.4-.6h-2c-.3 0-.6.2-.7.5L3.8 11.2c-.1.3 0 .6.3.8.1.1.2.1.4.1h2.1c.3 0 .6-.2.7-.5l.3-1.1h2.9l-.3 1.1c-.1.3.1.6.4.6h2.1c.2-.1.5-.3.6-.6zM7.5 8.7h1.4l.2-.9H7.8l-.3.9zm13.3-5.3c-.4-.1-.8-.1-1.2-.1h-3c-.4 0-.8.3-.9.7L14.1 9.4l-.1.4-.4 1.5c-.1.4.1.7.5.7h2.2c.4 0 .7-.3.8-.7l.2-.8h3.3c1.7 0 3.1-1.4 3.1-3s-1.4-3.1-3.1-3.1zm-.6 3.6h-1.6l.3-1.2h1.6c.4 0 .8.4.8.8-.1.3-.4.4-.8.4z" fill="#003087"></path><path d="M30.7 3.4h-2.1c-.4 0-.7.3-.8.7l-.3 1.3h-2l.3-1.3c.1-.4-.2-.7-.6-.7h-2.1c-.4 0-.7.3-.8.7l-1.5 6.7c-.1.4.2.7.6.7h2.1c.4 0 .7-.3.8-.7l.3-1.4h2l-.3 1.4c-.1.4.2.7.6.7h2.1c.4 0 .7-.3.8-.7l1.5-6.7c.1-.4-.2-.7-.6-.7z" fill="#003087"></path></svg>
+</div>
+<span class="text-sm font-medium text-slate-900">PayPal Fast and Secure Payment</span>
+</div>
+<span class="text-[10px] font-bold text-success uppercase tracking-wider">Recommended</span>
+</label>
+<label class="flex items-center p-4 rounded-lg border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all cursor-pointer">
+<input class="w-4 h-4 border-slate-300 text-primary focus:ring-primary mr-4" name="payment" type="radio"/>
+<div class="flex items-center flex-1">
+<div class="flex gap-1 mr-3">
+<div class="w-8 h-5 bg-slate-100 rounded-sm flex items-center justify-center"><span class="text-[8px] font-bold text-slate-400">VISA</span></div>
+<div class="w-8 h-5 bg-slate-100 rounded-sm flex items-center justify-center"><span class="text-[8px] font-bold text-slate-400">MC</span></div>
+</div>
+<span class="text-sm font-medium text-slate-900">Credit or Debit Card</span>
+</div>
+</label>
+<label class="flex items-center p-4 rounded-lg border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all cursor-pointer">
+<input class="w-4 h-4 border-slate-300 text-primary focus:ring-primary mr-4" name="payment" type="radio"/>
+<div class="flex items-center flex-1">
+<span class="material-symbols-outlined mr-3 text-slate-400">account_balance</span>
+<span class="text-sm font-medium text-slate-900">Bank Transfer</span>
+</div>
+</label>
+</div>
+</section>
+</div>
+<!-- Sidebar: Right Column -->
+<aside class="lg:col-span-4 space-y-6">
+<!-- Order Summary -->
+<div class="bg-white p-8 rounded-lg card-shadow">
+<h2 class="font-bold text-lg tracking-tight text-slate-900 mb-1 border-b border-slate-50 pb-4 uppercase">ORDER SUMMARY</h2>
+<p class="text-xs text-slate-400 font-semibold uppercase mb-6">Estimated Production: 3-5 business days</p>
+<div class="space-y-4 mb-6">
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Subtotal (2 items, 2 total parts)</span>
+<span class="font-semibold text-slate-900">$274.33</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Shipping Fee</span>
+<span class="font-semibold text-slate-900">$15.00</span>
+</div>
+</div>
+<div class="pt-6 border-t border-slate-100 mb-6">
+<div class="flex justify-between items-end">
+<span class="text-xl font-bold text-slate-900">Total</span>
+<div class="text-2xl font-bold text-primary">$289.33</div>
+</div>
+</div>
+<button class="w-full inline-flex items-center justify-center gap-2 bg-primary text-white font-bold rounded-lg uppercase tracking-wider text-sm py-4 hover:bg-primary-hover transition-all shadow-md shadow-primary/20 active:scale-[0.99]">
+<span>Confirm Payment</span>
+<span class="material-symbols-outlined text-base">lock</span>
+</button>
+</div>
+
+<!-- Coupons Card -->
+<div class="bg-white p-6 rounded-lg card-shadow sticky top-24">
+<div class="flex justify-between items-center mb-4">
+    <h2 class="font-bold text-base tracking-tight text-slate-900">Coupons</h2>
+    <button class="text-slate-400 hover:text-primary transition-colors" title="Refresh coupons"><span class="material-symbols-outlined text-sm">refresh</span></button>
+</div>
+<div class="space-y-3">
+    <div class="relative">
+        <select class="w-full bg-white border border-slate-200 rounded-lg text-sm text-slate-700 py-3 pl-4 pr-10 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all cursor-pointer">
+            <option value="">Select a coupon</option>
+            <option value="new10">NEW10 - 10% Off New Customer</option>
+            <option value="bulk5">BULK5 - 5% Off Volume Discount</option>
+        </select>
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
+            <span class="material-symbols-outlined text-lg">expand_more</span>
+        </div>
+    </div>
+    <div class="rounded-lg border border-dashed border-slate-200 bg-slate-50 px-4 py-3">
+        <p class="text-xs font-medium text-slate-500">Choose one available coupon to apply at checkout. Applied discounts will update the order total automatically in the prototype.</p>
+    </div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<!-- Background Decoration (Subtle Gradients) -->
+<div class="fixed top-0 right-0 w-[50vw] h-[512px] bg-primary/5 blur-[120px] -z-10 rounded-full"></div>
+<div class="fixed bottom-0 left-0 w-[30vw] h-[307px] bg-primary/5 blur-[100px] -z-10 rounded-full"></div>
+<script>
+    const modelCards = Array.from(document.querySelectorAll('[data-model-card]'));
+    const toggleAllButton = document.getElementById('toggle-all-details');
+    const toggleAllLabel = document.getElementById('toggle-all-label');
+
+    function setCardExpanded(card, expanded) {
+        const details = card.querySelector('.model-details');
+        const button = card.querySelector('.toggle-model-details');
+        const icon = button.querySelector('.material-symbols-outlined');
+        const label = button.querySelector('span:first-child');
+
+        details.classList.toggle('is-open', expanded);
+        details.classList.toggle('mt-3', expanded);
+        details.classList.toggle('mt-0', !expanded);
+        button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        label.textContent = expanded ? 'Collapse' : 'Expand';
+        icon.textContent = expanded ? 'expand_less' : 'expand_more';
+        icon.classList.toggle('rotate-180', !expanded);
+    }
+
+    function syncToggleAllLabel() {
+        const allExpanded = modelCards.every((card) => card.querySelector('.model-details').classList.contains('is-open'));
+        toggleAllLabel.textContent = allExpanded ? 'Collapse All' : 'Expand All';
+        toggleAllButton.querySelector('.material-symbols-outlined').textContent = allExpanded ? 'unfold_less' : 'unfold_more';
+    }
+
+    modelCards.forEach((card) => {
+        const button = card.querySelector('.toggle-model-details');
+        button.addEventListener('click', () => {
+            const details = card.querySelector('.model-details');
+            const expanded = !details.classList.contains('is-open');
+            setCardExpanded(card, expanded);
+            syncToggleAllLabel();
+        });
+    });
+
+    toggleAllButton.addEventListener('click', () => {
+        const shouldExpand = toggleAllLabel.textContent === 'Expand All';
+        modelCards.forEach((card) => setCardExpanded(card, shouldExpand));
+        syncToggleAllLabel();
+    });
+</script>
+</body></html>
