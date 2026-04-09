@@ -7,7 +7,6 @@ import {
   Filter,
   Calendar as CalendarIcon,
   CreditCard,
-  Pencil,
   ArrowLeft,
   Download,
   PackageCheck,
@@ -15,6 +14,8 @@ import {
   Receipt,
 } from 'lucide-react';
 import { cn } from '../lib/utils';
+import { PartItemCard, type PartItemCardData } from './PartItemCard';
+import { OrderItemsPreview } from './OrderItemsPreview';
 
 type OrderItem = {
   id: string;
@@ -31,6 +32,20 @@ type OrderItem = {
   totalPrice: string;
   image: string;
 };
+
+const toPartCardItem = (item: OrderItem): PartItemCardData => ({
+  fileName: item.fileName,
+  dimensions: item.dimensions,
+  metrics: item.metrics,
+  material: item.material,
+  color: item.color,
+  postProcess: item.postProcess,
+  quantity: item.quantity,
+  unitPrice: item.unitPrice,
+  totalPrice: item.totalPrice,
+  image: item.image,
+  note: item.partNotes,
+});
 
 type OrderRecord = {
   id: string;
@@ -66,8 +81,8 @@ const ordersData: OrderRecord[] = [
   {
     id: 'ORD260319-089008',
     status: 'Pending',
-    quantity: '2 items, 2 pcs',
-    total: 'USD 339.33',
+    quantity: '5 items, 5 pcs',
+    total: 'USD 757.03',
     discount: '-',
     estDelivery: '-',
     paymentStatus: 'Unpaid',
@@ -77,7 +92,7 @@ const ordersData: OrderRecord[] = [
     orderTime: '2026-03-19 08:09:08',
     invoiceStatus: 'Pending',
     packageName: 'ORD260319-089008_files.zip',
-    subtotal: '274.33 USD',
+    subtotal: '692.03 USD',
     shippingFee: '65.00 USD',
     address: {
       recipient: '1212 123',
@@ -121,13 +136,58 @@ const ordersData: OrderRecord[] = [
         totalPrice: '$59.00',
         image: 'https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=400&q=80',
       },
+      {
+        id: 'item-3',
+        orderItemId: 'ORD260319-089008-P003',
+        fileName: 'Turbo_Valve_Housing_A.stl',
+        dimensions: '180.60 × 122.40 × 76.30 mm',
+        metrics: '84210.88 mm³ | 61244.19 mm²',
+        partNotes: 'Natural silver finish confirmed.',
+        material: 'AlSi10Mg',
+        color: 'Natural Silver',
+        postProcess: 'Bead Blasted',
+        unitPrice: '$132.40',
+        quantity: '1',
+        totalPrice: '$132.40',
+        image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=400&q=80',
+      },
+      {
+        id: 'item-4',
+        orderItemId: 'ORD260319-089008-P004',
+        fileName: 'Cooling_Manifold_Beta.step',
+        dimensions: '128.20 × 95.70 × 64.10 mm',
+        metrics: '61220.30 mm³ | 44882.64 mm²',
+        partNotes: 'No notes',
+        material: 'Titanium Ti64',
+        color: 'Raw Finish',
+        postProcess: 'Support Removal + QC',
+        unitPrice: '$188.90',
+        quantity: '1',
+        totalPrice: '$188.90',
+        image: 'https://images.unsplash.com/photo-1565035010268-a3816f98589a?auto=format&fit=crop&w=400&q=80',
+      },
+      {
+        id: 'item-5',
+        orderItemId: 'ORD260319-089008-P005',
+        fileName: 'Pump_Bracket_Gamma.step',
+        dimensions: '156.00 × 88.00 × 42.00 mm',
+        metrics: '48880.15 mm³ | 29112.83 mm²',
+        partNotes: 'Verify bolt-hole clearance before release.',
+        material: 'Stainless Steel 316L',
+        color: 'Metallic Gray',
+        postProcess: 'Shot Peened + Deburred',
+        unitPrice: '$96.40',
+        quantity: '1',
+        totalPrice: '$96.40',
+        image: 'https://images.unsplash.com/photo-1581092335397-9fa3411081c7?auto=format&fit=crop&w=400&q=80',
+      },
     ],
   },
   {
     id: 'ORD260315-078122',
     status: 'Completed',
-    quantity: '1 item, 1 pc',
-    total: 'USD 125.00',
+    quantity: '3 items, 3 pcs',
+    total: 'USD 266.80',
     discount: 'USD 10.00',
     estDelivery: '2026-03-22',
     paymentStatus: 'Paid',
@@ -137,7 +197,7 @@ const ordersData: OrderRecord[] = [
     orderTime: '2026-03-15 14:12:09',
     invoiceStatus: 'Downloaded',
     packageName: 'ORD260315-078122_files.zip',
-    subtotal: '110.00 USD',
+    subtotal: '251.80 USD',
     shippingFee: '15.00 USD',
     address: {
       recipient: 'Alex Rivers',
@@ -165,6 +225,36 @@ const ordersData: OrderRecord[] = [
         quantity: '1',
         totalPrice: '$125.00',
         image: 'https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=400&q=80',
+      },
+      {
+        id: 'item-4',
+        orderItemId: 'ORD260315-078122-P002',
+        fileName: 'Nozzle_Array_Epsilon.stl',
+        dimensions: '92.40 × 48.70 × 36.50 mm',
+        metrics: '18332.20 mm³ | 11228.40 mm²',
+        partNotes: 'Keep outlet edges sharp.',
+        material: 'AlSi10Mg',
+        color: 'Natural Silver',
+        postProcess: 'Fine Bead Blast',
+        unitPrice: '$74.50',
+        quantity: '1',
+        totalPrice: '$74.50',
+        image: 'https://images.unsplash.com/photo-1565035010268-a3816f98589a?auto=format&fit=crop&w=400&q=80',
+      },
+      {
+        id: 'item-5',
+        orderItemId: 'ORD260315-078122-P003',
+        fileName: 'Filter_Cap_Delta.step',
+        dimensions: '118.30 × 56.20 × 31.80 mm',
+        metrics: '22108.43 mm³ | 15420.16 mm²',
+        partNotes: 'No notes',
+        material: 'Stainless Steel 316L',
+        color: 'Metallic Gray',
+        postProcess: 'Sand Blasted - Matte',
+        unitPrice: '$52.30',
+        quantity: '1',
+        totalPrice: '$52.30',
+        image: 'https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=400&q=80',
       },
     ],
   },
@@ -268,77 +358,40 @@ const OrderDetailsView = ({ order, onBack }: { order: OrderRecord; onBack: () =>
 
         <div className="space-y-5">
           {order.items.map((item) => (
-            <article key={item.id} className="rounded-[1.5rem] border border-outline bg-slate-50/60 p-6 transition-all hover:border-primary/20 hover:bg-white">
-              <div className="grid gap-6 xl:grid-cols-[220px_minmax(0,1fr)]">
-                <div className="space-y-4">
-                  <div className="flex h-40 items-center justify-center rounded-[1.25rem] bg-white p-4 shadow-sm">
-                    <img
-                      src={item.image}
-                      alt={item.fileName}
-                      className="h-full w-full rounded-xl object-cover"
-                      referrerPolicy="no-referrer"
-                    />
+            <PartItemCard
+              key={item.id}
+              item={toPartCardItem(item)}
+              eyebrow={`Order Item #${item.orderItemId}`}
+              tone="soft"
+              topAction={
+                <button className="inline-flex items-center gap-2 rounded-full border border-outline bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-600 transition-colors hover:border-primary/30 hover:text-primary">
+                  <Receipt size={14} />
+                  Item Invoice
+                </button>
+              }
+              rightAside={
+                <div className="space-y-5">
+                  <div>
+                    <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Quantity</p>
+                    <p className="mt-2 text-2xl font-black tracking-tight text-on-background">{item.quantity}</p>
                   </div>
                   <div>
-                    <h3 className="text-sm font-black tracking-tight text-on-background">{item.fileName}</h3>
-                    <p className="mt-2 text-xs font-medium text-slate-500">{item.dimensions}</p>
-                    <p className="mt-1 text-xs font-medium text-slate-400">{item.metrics}</p>
+                    <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Unit Price</p>
+                    <p className="mt-2 text-sm font-semibold text-slate-800">{item.unitPrice}</p>
                   </div>
-                  <div className="rounded-2xl border border-outline bg-white px-4 py-3">
-                    <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Part Notes</p>
-                    <p className="mt-2 text-sm text-slate-500">{item.partNotes}</p>
+                  <div>
+                    <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Payment State</p>
+                    <span className={cn('mt-2 inline-flex rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em]', paymentClass(order.paymentStatus))}>
+                      {order.paymentStatus}
+                    </span>
                   </div>
-                </div>
-
-                <div className="space-y-5">
-                  <div className="flex flex-wrap items-center justify-between gap-3">
-                    <p className="text-xs font-bold uppercase tracking-[0.16em] text-slate-400">
-                      Order Item #{item.orderItemId}
-                    </p>
-                    <button className="inline-flex items-center gap-2 rounded-full border border-outline bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-600 transition-colors hover:border-primary/30 hover:text-primary">
-                      <Receipt size={14} />
-                      Item Invoice
-                    </button>
-                  </div>
-
-                  <div className="grid gap-4 border-t border-outline/70 pt-5 md:grid-cols-2 xl:grid-cols-4">
-                    <div>
-                      <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Material</p>
-                      <p className="mt-2 text-sm font-semibold text-slate-800">{item.material}</p>
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Color</p>
-                      <p className="mt-2 text-sm font-semibold text-slate-800">{item.color}</p>
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Processor</p>
-                      <p className="mt-2 text-sm font-semibold text-slate-800">{item.postProcess}</p>
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Unit Price</p>
-                      <p className="mt-2 text-sm font-semibold text-slate-800">{item.unitPrice}</p>
-                    </div>
-                  </div>
-
-                  <div className="grid gap-4 border-t border-outline/70 pt-5 md:grid-cols-3">
-                    <div>
-                      <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Quantity</p>
-                      <p className="mt-2 text-xl font-bold text-on-background">{item.quantity}</p>
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Payment State</p>
-                      <span className={cn('mt-2 inline-flex rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em]', paymentClass(order.paymentStatus))}>
-                        {order.paymentStatus}
-                      </span>
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Total Price</p>
-                      <p className="mt-2 text-xl font-bold text-primary">{item.totalPrice}</p>
-                    </div>
+                  <div>
+                    <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Total Price</p>
+                    <p className="mt-2 text-2xl font-black tracking-tight text-primary">{item.totalPrice}</p>
                   </div>
                 </div>
-              </div>
-            </article>
+              }
+            />
           ))}
         </div>
       </section>
@@ -411,7 +464,7 @@ export const OrdersPage = () => {
     <div className="space-y-12">
       <header className="flex flex-col md:flex-row justify-between items-end gap-6">
         <div className="max-w-xl">
-          <h1 className="text-5xl font-extrabold tracking-tighter text-on-background mb-4">
+          <h1 className="text-[2.5rem] font-extrabold tracking-tighter text-on-background mb-4">
             Your Orders.
           </h1>
           <p className="text-slate-500 text-lg leading-relaxed">
@@ -419,28 +472,6 @@ export const OrdersPage = () => {
           </p>
         </div>
       </header>
-
-      <section className="bg-white border border-outline rounded-2xl p-8 flex flex-col md:flex-row items-center gap-8 hover:shadow-lg hover:shadow-primary/5 transition-all">
-        <div className="w-24 h-24 rounded-full bg-primary-container flex items-center justify-center text-primary overflow-hidden border-4 border-white shadow-xl">
-          <img
-            src="https://picsum.photos/seed/user/200"
-            alt="Profile"
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-          />
-        </div>
-        <div className="flex-1 text-center md:text-left">
-          <div className="flex flex-col md:flex-row md:items-center gap-2 mb-2">
-            <h2 className="text-3xl font-black text-on-background tracking-tight">hongxin hong</h2>
-            <span className="text-slate-400 font-medium">@kriseoooooo@gmail.com</span>
-          </div>
-          <p className="text-slate-500 text-sm font-medium mb-4">kriseoooooo@gmail.com</p>
-          <button className="inline-flex items-center space-x-2 bg-primary-container text-primary px-6 py-2 rounded-xl font-bold text-sm hover:bg-primary hover:text-white transition-all active:scale-95">
-            <Pencil size={16} />
-            <span>Edit Profile</span>
-          </button>
-        </div>
-      </section>
 
       <section className="bg-white border border-outline rounded-2xl p-6 space-y-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -508,7 +539,20 @@ export const OrdersPage = () => {
               {ordersData.map((order, idx) => (
                 <tr key={order.id} className={cn('group hover:bg-slate-50/50 transition-colors', idx !== ordersData.length - 1 && 'border-b border-outline/50')}>
                   <td className="px-6 py-6">
-                    <span className="text-sm font-black text-on-background tracking-tight">{order.id}</span>
+                    <div className="flex items-start gap-3">
+                      <OrderItemsPreview
+                        previewImages={order.items.map((item) => item.image)}
+                        totalItems={order.items.length}
+                        title={`${order.id} Models`}
+                        className="flex flex-col gap-2"
+                      />
+                      <div className="space-y-2 pt-1">
+                        <span className="text-sm font-black text-on-background tracking-tight">{order.id}</span>
+                        <p className="max-w-[240px] truncate text-xs text-slate-400">
+                          {order.items[0]?.fileName}
+                        </p>
+                      </div>
+                    </div>
                   </td>
                   <td className="px-6 py-6">
                     <span className={cn('px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter', statusClass(order.status))}>

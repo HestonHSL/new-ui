@@ -28,12 +28,12 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('overview');
 
   return (
-    <div className="min-h-screen bg-white selection:bg-primary/10 selection:text-primary">
+    <div className="min-h-screen bg-slate-50 selection:bg-primary/10 selection:text-primary">
       <TopNav />
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
       {/* Main Content */}
-      <main className="lg:ml-72 pt-32 pb-24 lg:pb-12 px-8 max-w-7xl mx-auto">
+      <main className="pt-[134px] pb-24 lg:ml-72 lg:px-10 xl:px-12 2xl:px-14 lg:pb-12">
         <AnimatePresence mode="wait">
           {activeTab === 'overview' ? (
             <motion.div
@@ -44,12 +44,12 @@ export default function App() {
               transition={{ duration: 0.5 }}
             >
               {/* Header Section */}
-              <header className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+              <header className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
                 <div className="max-w-xl">
-                  <h1 className="text-5xl font-extrabold tracking-tighter text-on-background mb-4">
+                  <h1 className="text-[2.5rem] font-extrabold tracking-tighter text-on-background mb-4">
                     Welcome back, Alex.
                   </h1>
-                  <p className="text-slate-500 text-lg leading-relaxed">
+                  <p className="text-slate-500 text-[1.0625rem] leading-relaxed">
                     Your curation projects are currently moving through the pipeline. 
                     You have 3 actions requiring immediate attention today.
                   </p>
@@ -64,6 +64,7 @@ export default function App() {
                   value="08" 
                   actionLabel="View Details" 
                   iconColor="text-primary"
+                  onClick={() => { window.location.href = '/cart.html'; }}
                 />
                 <StatCard 
                   icon={CreditCard} 
@@ -88,7 +89,7 @@ export default function App() {
               {/* Content Grid */}
               <section className="grid grid-cols-1 gap-8">
                 <div>
-                  <RecentOrders />
+                  <RecentOrders onExplore={() => setActiveTab('orders')} />
                 </div>
               </section>
             </motion.div>

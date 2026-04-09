@@ -61,7 +61,7 @@ export const CouponsPage = () => {
     <div className="space-y-12">
       {/* Header */}
       <header className="max-w-xl">
-        <h1 className="text-5xl font-extrabold tracking-tighter text-on-background mb-4">
+        <h1 className="text-[2.5rem] font-extrabold tracking-tighter text-on-background mb-4">
           Your Rewards.
         </h1>
         <p className="text-slate-500 text-lg leading-relaxed">

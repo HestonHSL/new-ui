@@ -40,8 +40,8 @@ interface SidebarProps {
 
 export const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
   return (
-    <aside className="hidden lg:flex h-screen w-72 fixed left-0 top-0 bg-white border-r border-outline flex-col p-6 space-y-8 z-40 pt-24">
-      <div className="flex items-center space-x-4 px-4">
+    <aside className="hidden lg:flex fixed left-0 top-[134px] h-[calc(100vh-134px)] w-72 rounded-tr-[1.5rem] bg-white border-r border-t border-outline flex-col p-6 space-y-8 z-40 pt-8 shadow-sm">
+      <div className="flex items-center space-x-4 px-2">
         <div className="w-12 h-12 rounded-xl bg-primary-container flex items-center justify-center text-primary">
           <User size={24} className="fill-primary/20" />
         </div>
@@ -93,6 +93,9 @@ export const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
           <LogOut size={20} />
           <span className="font-semibold text-sm">Logout</span>
         </a>
+        <div className="px-4 pt-3">
+          <img src="/logo.svg" alt="ProtoTi" className="h-6 opacity-30" />
+        </div>
       </div>
     </aside>
   );

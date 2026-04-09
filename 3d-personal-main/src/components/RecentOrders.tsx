@@ -1,6 +1,7 @@
 import React from 'react';
-import { ArrowRight, Package, Truck, CreditCard } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { cn } from '../lib/utils';
+import { OrderItemsPreview } from './OrderItemsPreview';
 
 const orders = [
   {
@@ -9,10 +10,14 @@ const orders = [
     date: "Oct 24, 2023",
     amount: "$1,240.00",
     status: "Completed",
-    icon: Package,
-    iconBg: "bg-slate-100",
-    iconColor: "text-slate-600",
-    statusClass: "bg-slate-100 text-slate-700"
+    statusClass: "bg-slate-100 text-slate-700",
+    previewImages: [
+      "https://images.unsplash.com/photo-1565035010268-a3816f98589a?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1565035010268-a3816f98589a?auto=format&fit=crop&w=400&q=80",
+    ],
+    modelCount: 5,
   },
   {
     id: "#ORD-8842",
@@ -20,10 +25,13 @@ const orders = [
     date: "Oct 21, 2023",
     amount: "$2,100.00",
     status: "Production",
-    icon: Truck,
-    iconBg: "bg-primary-container",
-    iconColor: "text-primary",
-    statusClass: "bg-primary-container text-primary"
+    statusClass: "bg-primary-container text-primary",
+    previewImages: [
+      "https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=400&q=80",
+      "https://images.unsplash.com/photo-1565035010268-a3816f98589a?auto=format&fit=crop&w=400&q=80",
+    ],
+    modelCount: 3,
   },
   {
     id: "#ORD-8810",
@@ -31,19 +39,20 @@ const orders = [
     date: "Oct 19, 2023",
     amount: "$450.00",
     status: "Unpaid",
-    icon: CreditCard,
-    iconBg: "bg-slate-50",
-    iconColor: "text-slate-500",
-    statusClass: "bg-slate-100 text-slate-600"
+    statusClass: "bg-slate-100 text-slate-600",
+    previewImages: [
+      "https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=400&q=80",
+    ],
+    modelCount: 1,
   }
 ];
 
-export const RecentOrders = () => {
+export const RecentOrders = ({ onExplore }: { onExplore?: () => void }) => {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <h2 className="text-2xl font-bold text-on-background">Recent Orders</h2>
-        <button className="text-primary font-bold text-sm flex items-center hover:underline group">
+        <button onClick={onExplore} className="text-primary font-bold text-sm flex items-center hover:underline group">
           Explore All Orders
           <ArrowRight size={16} className="ml-1 group-hover:translate-x-1 transition-transform" />
         </button>
@@ -64,11 +73,14 @@ export const RecentOrders = () => {
               {orders.map((order) => (
                 <tr key={order.id} className="hover:bg-slate-50/50 transition-colors group">
                   <td className="px-8 py-6">
-                    <div className="flex items-center space-x-4">
-                      <div className={cn("w-12 h-12 rounded-lg flex items-center justify-center transition-transform group-hover:scale-105", order.iconBg)}>
-                        <order.icon size={20} className={order.iconColor} />
-                      </div>
-                      <div>
+                    <div className="flex items-start space-x-4">
+                      <OrderItemsPreview
+                        previewImages={order.previewImages}
+                        totalItems={order.modelCount}
+                        title={`${order.id} Models`}
+                        className="flex flex-col gap-2"
+                      />
+                      <div className="pt-1">
                         <p className="font-bold text-on-background">{order.id}</p>
                         <p className="text-slate-400 text-xs">{order.name}</p>
                       </div>
