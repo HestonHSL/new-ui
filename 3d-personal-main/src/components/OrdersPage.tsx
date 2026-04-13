@@ -285,10 +285,10 @@ const OrderDetailsView = ({ order, onBack }: { order: OrderRecord; onBack: () =>
         <div className="flex flex-col gap-4 xl:flex-row xl:items-start xl:justify-between">
           <div className="space-y-3">
             <div className="flex flex-wrap items-center gap-3">
-              <h1 className="text-2xl font-bold tracking-tight text-on-background">
+              <h1 className="text-[1.75rem] font-bold tracking-tight text-on-background">
                 Order {order.id}
               </h1>
-              <span className={cn('rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em]', statusClass(order.status))}>
+              <span className={cn('rounded-full px-3 py-1 text-[10px] font-black tracking-[0.08em]', statusClass(order.status))}>
                 {order.status}
               </span>
             </div>
@@ -300,7 +300,7 @@ const OrderDetailsView = ({ order, onBack }: { order: OrderRecord; onBack: () =>
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            <span className={cn('rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em]', paymentClass(order.paymentStatus))}>
+            <span className={cn('rounded-full px-3 py-1 text-[10px] font-black tracking-[0.08em]', paymentClass(order.paymentStatus))}>
               {order.paymentStatus}
             </span>
             <button className="inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-bold text-white shadow-sm shadow-primary/25 transition-all hover:bg-primary-hover active:scale-95">
@@ -317,8 +317,8 @@ const OrderDetailsView = ({ order, onBack }: { order: OrderRecord; onBack: () =>
             <MapPin size={20} />
           </div>
           <div>
-            <p className="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Address Information</p>
-            <h2 className="text-2xl font-bold tracking-tight text-on-background">Shipping Address</h2>
+            <p className="text-[11px] font-black tracking-[0.08em] text-primary">Address Information</p>
+            <h2 className="text-xl font-bold tracking-tight text-on-background">Shipping Address</h2>
           </div>
         </div>
 
@@ -347,8 +347,8 @@ const OrderDetailsView = ({ order, onBack }: { order: OrderRecord; onBack: () =>
       <section className="space-y-6 rounded-[2rem] border border-outline bg-white p-8 shadow-sm">
         <div className="flex flex-col gap-2 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Order Summary</p>
-            <h2 className="text-2xl font-bold tracking-tight text-on-background">All Order Items</h2>
+            <p className="text-[11px] font-black tracking-[0.08em] text-primary">Order Summary</p>
+            <h2 className="text-xl font-bold tracking-tight text-on-background">All Order Items</h2>
           </div>
           <div className="flex flex-wrap gap-3 text-sm text-slate-500">
             <span>Payment Status: <span className="font-semibold text-slate-800">{order.paymentStatus}</span></span>
@@ -364,7 +364,7 @@ const OrderDetailsView = ({ order, onBack }: { order: OrderRecord; onBack: () =>
               eyebrow={`Order Item #${item.orderItemId}`}
               tone="soft"
               topAction={
-                <button className="inline-flex items-center gap-2 rounded-full border border-outline bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-600 transition-colors hover:border-primary/30 hover:text-primary">
+                <button className="inline-flex items-center gap-2 rounded-full border border-outline bg-white px-4 py-2 text-xs font-bold tracking-[0.04em] text-slate-600 transition-colors hover:border-primary/30 hover:text-primary">
                   <Receipt size={14} />
                   Item Invoice
                 </button>
@@ -372,21 +372,21 @@ const OrderDetailsView = ({ order, onBack }: { order: OrderRecord; onBack: () =>
               rightAside={
                 <div className="space-y-5">
                   <div>
-                    <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Quantity</p>
+                    <p className="text-[10px] font-black tracking-[0.08em] text-slate-400">Quantity</p>
                     <p className="mt-2 text-2xl font-black tracking-tight text-on-background">{item.quantity}</p>
                   </div>
                   <div>
-                    <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Unit Price</p>
+                    <p className="text-[10px] font-black tracking-[0.08em] text-slate-400">Unit Price</p>
                     <p className="mt-2 text-sm font-semibold text-slate-800">{item.unitPrice}</p>
                   </div>
                   <div>
-                    <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Payment State</p>
-                    <span className={cn('mt-2 inline-flex rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-[0.18em]', paymentClass(order.paymentStatus))}>
+                    <p className="text-[10px] font-black tracking-[0.08em] text-slate-400">Payment State</p>
+                    <span className={cn('mt-2 inline-flex rounded-full px-3 py-1 text-[10px] font-black tracking-[0.08em]', paymentClass(order.paymentStatus))}>
                       {order.paymentStatus}
                     </span>
                   </div>
                   <div>
-                    <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Total Price</p>
+                    <p className="text-[10px] font-black tracking-[0.08em] text-slate-400">Total Price</p>
                     <p className="mt-2 text-2xl font-black tracking-tight text-primary">{item.totalPrice}</p>
                   </div>
                 </div>
@@ -403,8 +403,8 @@ const OrderDetailsView = ({ order, onBack }: { order: OrderRecord; onBack: () =>
               <PackageCheck size={20} />
             </div>
             <div>
-              <p className="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Download Package</p>
-              <h2 className="text-2xl font-bold tracking-tight text-on-background">Production Files</h2>
+              <p className="text-[11px] font-black tracking-[0.08em] text-primary">Download Package</p>
+              <h2 className="text-xl font-bold tracking-tight text-on-background">Production Files</h2>
             </div>
           </div>
 
@@ -421,8 +421,8 @@ const OrderDetailsView = ({ order, onBack }: { order: OrderRecord; onBack: () =>
         </div>
 
         <div className="rounded-[2rem] border border-outline bg-white p-8 shadow-sm">
-          <p className="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Price Summary</p>
-          <h2 className="mt-2 text-2xl font-bold tracking-tight text-on-background">Final Breakdown</h2>
+          <p className="text-[11px] font-black tracking-[0.08em] text-primary">Price Summary</p>
+          <h2 className="mt-2 text-xl font-bold tracking-tight text-on-background">Final Breakdown</h2>
           <div className="mt-8 space-y-4 text-sm">
             <div className="flex items-center justify-between">
               <span className="text-slate-500">Subtotal</span>
@@ -464,10 +464,10 @@ export const OrdersPage = () => {
     <div className="space-y-12">
       <header className="flex flex-col md:flex-row justify-between items-end gap-6">
         <div className="max-w-xl">
-          <h1 className="text-[2.5rem] font-extrabold tracking-tighter text-on-background mb-4">
+          <h1 className="mb-3 text-[2rem] font-bold tracking-tight text-on-background">
             Your Orders.
           </h1>
-          <p className="text-slate-500 text-lg leading-relaxed">
+          <p className="text-[0.95rem] leading-relaxed text-slate-500">
             Track your curation projects and manage your purchase history in real-time.
           </p>
         </div>
@@ -528,8 +528,14 @@ export const OrdersPage = () => {
                 {[
                   'Order Number', 'Status', 'Quantity', 'Total',
                   'Est. Delivery', 'Payment Status', 'Payment Method', 'Actions',
-                ].map((header) => (
-                  <th key={header} className="px-6 py-4 text-[10px] font-black uppercase tracking-widest text-slate-400">
+                ].map((header, index) => (
+                  <th
+                    key={header}
+                    className={cn(
+                      'px-6 py-4 text-[12px] font-semibold tracking-[0.04em] text-slate-500',
+                      index === 0 ? 'text-left' : 'text-center'
+                    )}
+                  >
                     {header}
                   </th>
                 ))}
@@ -539,48 +545,48 @@ export const OrdersPage = () => {
               {ordersData.map((order, idx) => (
                 <tr key={order.id} className={cn('group hover:bg-slate-50/50 transition-colors', idx !== ordersData.length - 1 && 'border-b border-outline/50')}>
                   <td className="px-6 py-6">
-                    <div className="flex items-start gap-3">
+                    <div className="grid grid-cols-[148px_minmax(0,1fr)] items-start gap-5">
                       <OrderItemsPreview
                         previewImages={order.items.map((item) => item.image)}
                         totalItems={order.items.length}
                         title={`${order.id} Models`}
                         className="flex flex-col gap-2"
                       />
-                      <div className="space-y-2 pt-1">
-                        <span className="text-sm font-black text-on-background tracking-tight">{order.id}</span>
-                        <p className="max-w-[240px] truncate text-xs text-slate-400">
+                      <div className="space-y-2 pt-1 text-left">
+                        <span className="block text-sm font-semibold tracking-tight text-on-background">{order.id}</span>
+                        <p className="max-w-[240px] truncate text-sm text-slate-400">
                           {order.items[0]?.fileName}
                         </p>
                       </div>
                     </div>
                   </td>
-                  <td className="px-6 py-6">
-                    <span className={cn('px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter', statusClass(order.status))}>
+                  <td className="px-6 py-6 text-center">
+                    <span className={cn('inline-flex rounded-full px-3 py-1 text-sm font-medium', statusClass(order.status))}>
                       {order.status}
                     </span>
                   </td>
-                  <td className="px-6 py-6">
+                  <td className="px-6 py-6 text-center">
                     <span className="text-sm font-medium text-slate-500">{order.quantity}</span>
                   </td>
-                  <td className="px-6 py-6">
-                    <span className="text-sm font-bold text-on-background">{order.total}</span>
+                  <td className="px-6 py-6 text-center">
+                    <span className="text-sm font-semibold text-on-background">{order.total}</span>
                   </td>
-                  <td className="px-6 py-6">
+                  <td className="px-6 py-6 text-center">
                     <span className="text-sm font-medium text-slate-500">{order.estDelivery}</span>
                   </td>
-                  <td className="px-6 py-6">
-                    <span className={cn('px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter', paymentClass(order.paymentStatus))}>
+                  <td className="px-6 py-6 text-center">
+                    <span className={cn('inline-flex rounded-full px-3 py-1 text-sm font-medium', paymentClass(order.paymentStatus))}>
                       {order.paymentStatus}
                     </span>
                   </td>
-                  <td className="px-6 py-6">
-                    <div className="flex items-center space-x-2">
+                  <td className="px-6 py-6 text-center">
+                    <div className="flex items-center justify-center space-x-2">
                       <CreditCard size={14} className="text-slate-300" />
                       <span className="text-sm font-medium text-slate-500">{order.paymentMethod}</span>
                     </div>
                   </td>
-                  <td className="px-6 py-6">
-                    <div className="flex items-center space-x-4">
+                  <td className="px-6 py-6 text-center">
+                    <div className="flex items-center justify-center space-x-4">
                       {order.paymentStatus === 'Unpaid' && (
                         <button className="text-primary font-bold text-sm hover:underline">Pay</button>
                       )}
@@ -588,7 +594,7 @@ export const OrdersPage = () => {
                         onClick={() => setSelectedOrderId(order.id)}
                         className="text-slate-500 font-bold text-sm hover:text-primary transition-colors"
                       >
-                        View Details
+                        Details
                       </button>
                     </div>
                   </td>
@@ -599,7 +605,7 @@ export const OrdersPage = () => {
         </div>
 
         <div className="p-6 bg-slate-50/30 border-t border-outline flex items-center justify-between">
-          <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+          <p className="text-xs font-bold tracking-[0.08em] text-slate-400">
             Showing 1-{ordersData.length} of {ordersData.length} items
           </p>
           <div className="flex items-center space-x-4">

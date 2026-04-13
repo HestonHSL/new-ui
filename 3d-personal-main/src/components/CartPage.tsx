@@ -36,7 +36,7 @@ const cartItems: PartItemCardData[] = [
 const CartAside = ({ item }: { item: PartItemCardData }) => (
   <div className="space-y-5">
     <div>
-      <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Quantity</p>
+      <p className="text-[10px] font-black tracking-[0.08em] text-slate-400">Quantity</p>
       <div className="mt-3 inline-flex items-center rounded-full border border-outline bg-slate-50 p-1">
         <button className="flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-white hover:text-primary">
           <Minus size={16} />
@@ -49,17 +49,17 @@ const CartAside = ({ item }: { item: PartItemCardData }) => (
     </div>
 
     <div>
-      <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Unit Price</p>
+      <p className="text-[10px] font-black tracking-[0.08em] text-slate-400">Unit Price</p>
       <p className="mt-2 text-sm font-semibold text-slate-800">{item.unitPrice ?? '-'}</p>
     </div>
 
     <div>
-      <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Lead Time</p>
+      <p className="text-[10px] font-black tracking-[0.08em] text-slate-400">Lead Time</p>
       <p className="mt-2 text-sm font-semibold text-slate-800">{item.leadTime ?? '-'}</p>
     </div>
 
     <div>
-      <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Total Price</p>
+      <p className="text-[10px] font-black tracking-[0.08em] text-slate-400">Total Price</p>
       <p className="mt-2 text-2xl font-black tracking-tight text-primary">{item.totalPrice}</p>
     </div>
   </div>
@@ -91,18 +91,18 @@ export const CartPage = () => {
               eyebrow={`Part ${String(index + 1).padStart(2, '0')}`}
               tone="soft"
               topAction={
-                <button className="rounded-full border border-outline bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-slate-600 transition-colors hover:border-primary/30 hover:text-primary">
+                <button className="rounded-full border border-outline bg-white px-4 py-2 text-xs font-bold tracking-[0.04em] text-slate-600 transition-colors hover:border-primary/30 hover:text-primary">
                   Configure
                 </button>
               }
               rightAside={<CartAside item={item} />}
               footerActions={
                 <div className="flex flex-wrap gap-3">
-                  <button className="inline-flex items-center gap-2 rounded-full bg-primary-container px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-primary transition-all hover:bg-primary hover:text-white">
+                  <button className="inline-flex items-center gap-2 rounded-full bg-primary-container px-4 py-2 text-xs font-bold tracking-[0.04em] text-primary transition-all hover:bg-primary hover:text-white">
                     <Pencil size={14} />
                     Edit Configuration
                   </button>
-                  <button className="inline-flex items-center gap-2 rounded-full border border-outline bg-white px-4 py-2 text-xs font-bold uppercase tracking-[0.16em] text-red-500 transition-colors hover:border-red-200 hover:bg-red-50">
+                  <button className="inline-flex items-center gap-2 rounded-full border border-outline bg-white px-4 py-2 text-xs font-bold tracking-[0.04em] text-red-500 transition-colors hover:border-red-200 hover:bg-red-50">
                     <Trash2 size={14} />
                     Remove
                   </button>
@@ -114,7 +114,7 @@ export const CartPage = () => {
 
         <aside className="space-y-6">
           <section className="rounded-[2rem] border border-outline bg-white p-8 shadow-sm">
-            <p className="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Shipping</p>
+            <p className="text-[11px] font-black tracking-[0.08em] text-primary">Shipping</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-on-background">Delivery Setup</h2>
             <div className="mt-6 rounded-[1.5rem] bg-slate-50 p-5 text-sm text-slate-500">
               <p className="font-semibold text-slate-800">1212 123 Default</p>
@@ -124,7 +124,7 @@ export const CartPage = () => {
           </section>
 
           <section className="rounded-[2rem] border border-outline bg-white p-8 shadow-sm">
-            <p className="text-[11px] font-black uppercase tracking-[0.22em] text-primary">Order Summary</p>
+            <p className="text-[11px] font-black tracking-[0.08em] text-primary">Order Summary</p>
             <h2 className="mt-2 text-2xl font-bold tracking-tight text-on-background">Checkout Total</h2>
             <div className="mt-8 space-y-4 text-sm">
               <div className="flex items-center justify-between">

@@ -1,5 +1,4 @@
 import React from 'react';
-import { ChevronRight } from 'lucide-react';
 import { cn } from '../lib/utils';
 
 interface StatCardProps {
@@ -16,14 +15,13 @@ export const StatCard = ({ icon: Icon, label, value, actionLabel, iconColor = "t
     <button
       type="button"
       onClick={onClick}
-      className="w-full bg-white p-8 rounded-xl border border-outline hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group text-left"
+      className="group flex min-h-[164px] w-full flex-col items-center justify-center rounded-xl border border-outline bg-white px-6 py-5 text-center transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5"
     >
-      <Icon className={cn(iconColor, "mb-6 w-8 h-8 group-hover:scale-110 transition-transform")} />
-      <h3 className="text-slate-500 font-semibold text-[13px] mb-1">{label}</h3>
-      <p className="text-[2rem] font-black text-on-background tracking-tight">{value}</p>
-      <div className="mt-4 flex items-center text-xs font-bold text-primary cursor-pointer hover:underline">
-        <span className="uppercase tracking-wider">{actionLabel}</span>
-        <ChevronRight size={14} className="ml-1" />
+      <Icon className={cn(iconColor, "mb-4 h-7 w-7 transition-transform group-hover:scale-110")} />
+      <h3 className="mb-1 text-xs font-semibold text-slate-500">{label}</h3>
+      <p className="text-[1.75rem] font-bold tracking-tight text-on-background">{value}</p>
+      <div className="mt-3 flex items-center justify-center text-[11px] font-bold text-primary">
+        <span>{actionLabel}</span>
       </div>
     </button>
   );

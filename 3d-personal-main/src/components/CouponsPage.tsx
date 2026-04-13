@@ -61,12 +61,12 @@ export const CouponsPage = () => {
     <div className="space-y-12">
       {/* Header */}
       <header className="max-w-xl">
-        <h1 className="text-[2.5rem] font-extrabold tracking-tighter text-on-background mb-4">
-          Your Rewards.
-        </h1>
-        <p className="text-slate-500 text-lg leading-relaxed">
-          Redeem exclusive offers and manage your active coupons to maximize your curation budget.
-        </p>
+          <h1 className="mb-3 text-[2rem] font-bold tracking-tight text-on-background">
+            Your Rewards.
+          </h1>
+          <p className="text-[0.95rem] leading-relaxed text-slate-500">
+            Redeem exclusive offers and manage your active coupons to maximize your curation budget.
+          </p>
       </header>
 
       {/* My Coupons Section */}
@@ -78,7 +78,7 @@ export const CouponsPage = () => {
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={cn(
-                  "text-sm font-bold uppercase tracking-widest transition-all relative py-2",
+                  "relative py-2 text-sm font-bold tracking-[0.04em] transition-all",
                   activeTab === tab ? "text-primary" : "text-slate-400 hover:text-slate-600"
                 )}
               >
@@ -92,7 +92,7 @@ export const CouponsPage = () => {
               </button>
             ))}
           </div>
-          <div className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+          <div className="text-xs font-bold tracking-[0.08em] text-slate-400">
             Total: {activeTab === 'available' ? coupons.length : 0}
           </div>
         </div>
@@ -111,18 +111,18 @@ export const CouponsPage = () => {
                   key={coupon.id}
                   className="bg-white border border-outline rounded-xl p-8 hover:shadow-lg hover:shadow-primary/5 transition-all group relative overflow-hidden"
                 >
-                  <div className={cn("absolute top-0 right-0 px-4 py-1 text-[10px] font-black uppercase tracking-tighter rounded-bl-xl", coupon.color)}>
+                  <div className={cn("absolute top-0 right-0 rounded-bl-xl px-4 py-1 text-[10px] font-black tracking-[0.08em]", coupon.color)}>
                     {coupon.type}
                   </div>
                   
                   <div className="space-y-4">
                     <div className="flex items-center space-x-2 text-slate-400">
                       <Tag size={14} />
-                      <span className="text-xs font-bold uppercase tracking-widest">Code: {coupon.code}</span>
+                      <span className="text-xs font-bold tracking-[0.08em]">Code: {coupon.code}</span>
                     </div>
 
                     <div>
-                      <h3 className="text-3xl font-black text-on-background tracking-tight leading-tight">
+                      <h3 className="text-[1.75rem] font-bold leading-tight tracking-tight text-on-background">
                         {coupon.highlight}
                       </h3>
                       <p className="mt-1.5 text-sm text-slate-400 font-normal">
@@ -142,7 +142,7 @@ export const CouponsPage = () => {
                         </div>
                       </div>
                       <button className="text-primary font-bold text-xs flex items-center hover:underline">
-                        USE NOW
+                        Use Now
                         <ChevronRight size={14} className="ml-1" />
                       </button>
                     </div>
@@ -177,7 +177,7 @@ export const CouponsPage = () => {
           </div>
           <div>
             <p className="font-bold text-primary">New Coupon Available!</p>
-            <p className="text-primary/70 text-sm">Get $100 OFF on your next CNC machining order over $1000.</p>
+            <p className="text-primary/70 text-sm">Get $100 Off on your next CNC machining order over $1000.</p>
           </div>
         </div>
         <button className="bg-white text-primary px-6 py-2 rounded-lg font-bold text-sm shadow-sm hover:shadow-md transition-all">

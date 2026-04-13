@@ -27,11 +27,11 @@ export const ProfileCard = () => {
 
         <div className="grid grid-cols-2 gap-4 w-full mb-8">
           <div className="bg-slate-50 p-4 rounded-xl border border-outline group hover:bg-primary-container/30 transition-colors">
-            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 group-hover:text-primary/60 transition-colors">Total Spent</p>
+            <p className="mb-1 text-[10px] font-bold tracking-[0.08em] text-slate-400 transition-colors group-hover:text-primary/60">Total Spent</p>
             <p className="text-lg font-black text-primary">$12.4k</p>
           </div>
           <div className="bg-slate-50 p-4 rounded-xl border border-outline group hover:bg-primary-container/30 transition-colors">
-            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 group-hover:text-primary/60 transition-colors">Projects</p>
+            <p className="mb-1 text-[10px] font-bold tracking-[0.08em] text-slate-400 transition-colors group-hover:text-primary/60">Projects</p>
             <p className="text-lg font-black text-primary">24</p>
           </div>
         </div>
@@ -40,7 +40,7 @@ export const ProfileCard = () => {
           Edit Profile Details
         </button>
         
-        <p className="mt-4 text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+        <p className="mt-4 text-[10px] font-bold tracking-[0.08em] text-slate-400">
           Elite Tier Member Since 2022
         </p>
       </div>

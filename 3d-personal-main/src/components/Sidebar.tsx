@@ -22,14 +22,14 @@ const NavItem = ({ icon: Icon, label, active, onClick }: NavItemProps) => (
   <button
     onClick={onClick}
     className={cn(
-      "w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 group",
+      "group flex w-full items-center space-x-3 rounded-xl px-4 py-3 transition-all duration-200",
       active 
         ? "bg-primary-container text-primary shadow-sm" 
         : "text-slate-500 hover:text-primary hover:bg-slate-50"
     )}
   >
-    <Icon size={20} className={cn(active ? "fill-primary/20" : "group-hover:scale-110 transition-transform")} />
-    <span className="font-semibold text-sm">{label}</span>
+    <Icon size={18} className={cn(active ? "fill-primary/20" : "transition-transform group-hover:scale-110")} />
+    <span className="text-[13px] font-semibold">{label}</span>
   </button>
 );
 
@@ -46,8 +46,8 @@ export const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
           <User size={24} className="fill-primary/20" />
         </div>
         <div>
-          <p className="text-on-background font-bold text-base">Alex Rivers</p>
-          <p className="text-slate-500 text-xs font-semibold uppercase tracking-wider">Elite Tier</p>
+          <p className="text-[15px] font-bold text-on-background">Alex Rivers</p>
+          <p className="text-xs font-semibold tracking-[0.08em] text-slate-500">Elite Tier</p>
         </div>
       </div>
 
@@ -87,11 +87,11 @@ export const Sidebar = ({ activeTab, setActiveTab }: SidebarProps) => {
       <div className="pt-6 border-t border-outline space-y-2">
         <a href="#" className="flex items-center space-x-3 text-slate-500 px-4 py-3 hover:text-primary transition-colors">
           <HelpCircle size={20} />
-          <span className="font-semibold text-sm">Help Center</span>
+          <span className="text-[13px] font-semibold">Help Center</span>
         </a>
         <a href="#" className="flex items-center space-x-3 text-slate-500 px-4 py-3 hover:text-red-500 transition-colors">
           <LogOut size={20} />
-          <span className="font-semibold text-sm">Logout</span>
+          <span className="text-[13px] font-semibold">Logout</span>
         </a>
         <div className="px-4 pt-3">
           <img src="/logo.svg" alt="ProtoTi" className="h-6 opacity-30" />

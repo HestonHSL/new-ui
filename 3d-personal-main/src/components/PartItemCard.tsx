@@ -64,7 +64,7 @@ export const PartItemCard: React.FC<PartItemCardProps> = ({
             </button>
             <div>
               {eyebrow ? (
-                <p className="text-[10px] font-black uppercase tracking-[0.18em] text-primary">{eyebrow}</p>
+                <p className="text-[10px] font-black tracking-[0.08em] text-primary">{eyebrow}</p>
               ) : null}
               <h3 className="mt-2 text-lg font-black tracking-tight text-on-background">{item.fileName}</h3>
               <p className="mt-2 text-sm font-medium text-slate-500">{item.dimensions}</p>
@@ -98,22 +98,22 @@ export const PartItemCard: React.FC<PartItemCardProps> = ({
 
             <div className="grid gap-4 border-t border-outline/70 pt-5 md:grid-cols-2 xl:grid-cols-3">
               <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Material</p>
+                <p className="text-[10px] font-black tracking-[0.08em] text-slate-400">Material</p>
                 <p className="mt-2 text-sm font-semibold text-slate-800">{item.material}</p>
               </div>
               <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Color</p>
+                <p className="text-[10px] font-black tracking-[0.08em] text-slate-400">Color</p>
                 <p className="mt-2 text-sm font-semibold text-slate-800">{item.color}</p>
               </div>
               <div>
-                <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Post Process</p>
+                <p className="text-[10px] font-black tracking-[0.08em] text-slate-400">Post Process</p>
                 <p className="mt-2 text-sm font-semibold text-slate-800">{item.postProcess}</p>
               </div>
             </div>
 
             {item.note ? (
               <div className="rounded-[1.25rem] border border-outline bg-white px-4 py-3">
-                <p className="text-[10px] font-black uppercase tracking-[0.18em] text-slate-400">Part Notes</p>
+                <p className="text-[10px] font-black tracking-[0.08em] text-slate-400">Part Notes</p>
                 <p className="mt-2 text-sm text-slate-500">{item.note}</p>
               </div>
             ) : null}

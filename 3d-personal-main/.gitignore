@@ -1,19 +1,8 @@
 node_modules/
-dist/
 build/
+dist/
 coverage/
-
-# caches
-.cache/
-.parcel-cache/
-.turbo/
-.vite/
-.eslintcache
-
-# logs
 .DS_Store
 *.log
-
-# env (keep example)
 .env*
 !.env.example

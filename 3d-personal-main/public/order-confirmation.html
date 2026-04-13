@@ -13,8 +13,8 @@
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#1978e5",
-                        "primary-hover": "#1669ca",
+                        "primary": "#0052cc",
+                        "primary-hover": "#003ea3",
                         "on-primary": "#ffffff",
                         "background": "#f8fafc",
                         "surface": "#ffffff",
@@ -56,8 +56,8 @@
             border: 1px solid #f1f5f9;
         }
         .input-focus:focus {
-            border-color: #1978e5;
-            box-shadow: 0 0 0 2px rgba(25, 120, 229, 0.1);
+            border-color: #0052cc;
+            box-shadow: 0 0 0 2px rgba(0, 82, 204, 0.1);
             outline: none;
         }
         .model-details {
@@ -71,6 +71,17 @@
             opacity: 1;
             max-height: 520px;
             transform: translateY(0);
+        }
+        .model-card .summary-file p,
+        .model-card .summary-config p:not(:first-child) {
+            display: none;
+        }
+        .model-card:not(.is-collapsed) .summary-badges {
+            display: none;
+        }
+        .model-card .summary-file,
+        .model-card .summary-config {
+            gap: 0;
         }
     </style>
 </head>
@@ -149,39 +160,44 @@ Log Out
 <h2 class="text-2xl font-bold tracking-tight text-slate-900">Order Details</h2>
 <p class="text-xs text-slate-500">Order # ORD260319-112007</p>
 </div>
-<button id="toggle-all-details" class="inline-flex items-center gap-2 self-start md:self-auto px-4 py-2 rounded-lg border border-slate-200 text-xs font-bold uppercase tracking-wider text-slate-600 hover:text-primary hover:border-primary/30 hover:bg-blue-50/40 transition-all">
+<button id="toggle-all-details" class="inline-flex items-center gap-2 self-start rounded-lg border border-slate-200 px-4 py-2 text-xs font-bold tracking-[0.04em] text-slate-600 transition-all hover:border-primary/30 hover:bg-blue-50/40 hover:text-primary md:self-auto">
 <span class="material-symbols-outlined text-base">unfold_more</span>
 <span id="toggle-all-label">Expand All</span>
 </button>
 </div>
 
 <div class="space-y-4 mt-6">
-<article class="model-card border border-slate-200 rounded-2xl overflow-hidden bg-white" data-model-card>
+<article class="model-card border border-slate-200 rounded-2xl overflow-hidden bg-amber-50/40" data-model-card>
 <div class="p-5">
+<div class="mb-3">
+<span class="inline-flex items-center rounded-md bg-amber-100 px-2.5 py-1 text-[10px] font-semibold text-amber-700">Manual Quotation Required</span>
+</div>
 <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-start md:items-center">
 <div class="md:col-span-4 flex items-center gap-3 pl-2">
-<div class="w-16 h-16 bg-slate-50 rounded-lg flex items-center justify-center border border-slate-100 shrink-0">
-<span class="material-symbols-outlined text-slate-300 text-3xl">view_in_ar</span>
-</div>
+<button type="button" class="w-16 h-16 bg-slate-50 rounded-lg overflow-hidden border border-slate-100 shrink-0 flex items-center justify-center cursor-zoom-in transition-transform hover:scale-[1.03]" data-model-preview-trigger data-preview-src="https://images.unsplash.com/photo-1581092335397-9fa3411081c7?auto=format&fit=crop&w=400&q=80" data-preview-title="4in Tri Tee r2.step">
+<img src="https://images.unsplash.com/photo-1581092335397-9fa3411081c7?auto=format&fit=crop&w=400&q=80" alt="4in Tri Tee r2.step" class="w-full h-full object-contain" />
+</button>
 <div class="flex flex-col gap-1 min-w-0">
-<h3 class="font-bold text-sm text-slate-900 truncate" title="90101001-Exhaust-Manifold-Tubing-rev-.step">90101001-Exhaust-Manifold-Tubing-rev-.step</h3>
-<p class="text-[10px] text-slate-500 font-medium">303.14 x 156.77 x 102.27 mm</p>
-<p class="text-[10px] text-slate-500 font-medium">1 total part</p>
+<h3 class="font-bold text-sm text-slate-900 break-words" title="4in Tri Tee r2.step">4in Tri Tee r2.step</h3>
+<p class="text-[10px] text-slate-500 font-medium">260.35 x 118.92 x 189.64 mm</p>
+<p class="text-[10px] text-slate-500 font-medium">216444.62 mm³ | 223382.00 mm²</p>
 </div>
 </div>
 <div class="md:col-span-3 flex flex-col gap-1 min-w-0">
-<p class="text-xs font-bold text-slate-900">Material: Stainless Steel 316L</p>
-<p class="text-[10px] text-slate-500">Color: Metallic Gray</p>
-<p class="text-[10px] text-slate-500">Post Process: Sand Blasted - Matte</p>
-<p class="text-[10px] text-slate-500">Printer: SLM1-280*280*350mm</p>
+<p class="text-xs font-bold text-slate-900">Process: CNC Machining</p>
+<p class="text-[10px] text-slate-500">Material: 123123 <span class="text-primary font-semibold">(Custom)</span></p>
+<p class="text-[10px] text-slate-500">Color: 123123 <span class="text-primary font-semibold">(Custom)</span></p>
+<p class="text-[10px] text-slate-500">Surface Finish: As Machined (Ra 3.2)</p>
+<p class="text-[10px] text-slate-500">Tolerance: ISO 2768-medium (m)</p>
+<p class="text-[10px] text-slate-500">Machining Complexity: 3 Axis Multi-Setup</p>
 </div>
 <div class="md:col-span-1 flex md:justify-center">
 <div class="inline-flex w-12 h-8 items-center justify-center rounded-md border border-slate-200 bg-white text-sm font-semibold text-slate-900">1</div>
 </div>
 <div class="md:col-span-2 flex flex-col md:items-center justify-center text-left md:text-center">
-<p class="text-base font-bold text-primary">$215.33</p>
-<p class="text-[10px] text-slate-400 font-medium mt-0.5">$215.33/piece</p>
-<p class="text-[9px] text-slate-500 font-medium mt-1 uppercase">Est. 3-5 Days</p>
+<p class="text-base font-bold text-amber-500">≈ $1341.83</p>
+<p class="text-[10px] text-amber-500/80 font-medium mt-0.5">≈ $1341.83/piece</p>
+<p class="mt-1 text-[9px] font-medium text-slate-500">Est. 8-13 Days</p>
 </div>
 <div class="md:col-span-2 flex flex-wrap items-center gap-x-2 gap-y-1 md:pl-2 md:border-l md:border-slate-100 min-w-0">
 <button class="toggle-model-details inline-flex items-center gap-1 text-[10px] font-semibold text-primary hover:text-primary-hover transition-colors whitespace-nowrap" type="button" aria-expanded="false">
@@ -201,12 +217,125 @@ Log Out
 </div>
 </div>
 <div class="model-details mt-0">
-<div class="mt-5 space-y-1 text-[11px] leading-relaxed text-slate-500">
+<div class="mt-5 grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-3 md:items-start">
+<div class="space-y-1 text-[11px] leading-relaxed text-slate-500 md:col-span-4 md:pl-2">
+<p><span class="font-semibold text-slate-700">Dimensions:</span> 260.35 x 118.92 x 189.64 mm</p>
+<p><span class="font-semibold text-slate-700">Volume:</span> 216444.62 mm³</p>
+<p><span class="font-semibold text-slate-700">Surface Area:</span> 223382.00 mm²</p>
+</div>
+<div class="space-y-1 text-[11px] leading-relaxed text-slate-500 md:col-span-3">
+<p><span class="font-semibold text-slate-700">Process:</span> CNC Machining</p>
+<p><span class="font-semibold text-slate-700">Material:</span> 123123 <span class="text-primary font-semibold">(Custom)</span></p>
+<p><span class="font-semibold text-slate-700">Color:</span> 123123 <span class="text-primary font-semibold">(Custom)</span></p>
+<p><span class="font-semibold text-slate-700">Surface Finish:</span> As Machined (Ra 3.2)</p>
+<p><span class="font-semibold text-slate-700">Tolerance:</span> ISO 2768-medium (m)</p>
+<p><span class="font-semibold text-slate-700">Machining Complexity:</span> 3 Axis Multi-Setup</p>
+<p><span class="font-semibold text-slate-700">Cosmetic Requirement:</span> Functional Only</p>
+<p><span class="font-semibold text-slate-700">Threads:</span> No</p>
+<p><span class="font-semibold text-slate-700">Internal Corner Radius:</span> Internal Corners ≥ R2</p>
+<p><span class="font-semibold text-slate-700">Part Marking:</span> None</p>
+<p><span class="font-semibold text-slate-700">Quality Inspection:</span> Quality Control / No-Report</p>
+<p><span class="font-semibold text-slate-700">Part Size:</span> Max: 500 x 500 x 500 mm</p>
+<p><span class="font-semibold text-slate-700">Request Manual Quote:</span> Not if necessary</p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
+<div>
+<label class="flex items-center gap-1 text-[11px] font-medium text-slate-500 mb-2">
+<span class="material-symbols-outlined text-[14px]">attachment</span> Attachments
+</label>
+<div class="bg-slate-50 border border-slate-100 rounded-lg p-3 flex items-center justify-center h-[62px]">
+<p class="text-xs text-slate-400">No attachments</p>
+</div>
+</div>
+<div>
+<label class="flex items-center gap-1 text-[11px] font-medium text-slate-500 mb-2">
+<span class="material-symbols-outlined text-[14px]">chat_bubble_outline</span> Notes
+</label>
+<div class="relative">
+<textarea class="w-full bg-slate-50 border border-slate-200 rounded-lg text-xs p-3 focus:ring-1 focus:ring-primary focus:border-primary text-slate-700 resize-none" placeholder="Add notes here..." rows="2" maxlength="500"></textarea>
+<span class="absolute bottom-2 right-2 text-[10px] text-slate-400">0 / 500</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
+<div>
+<label class="mb-2 block text-[11px] font-medium text-slate-500">Manual Assessed Price</label>
+<div class="flex h-[44px] items-center rounded-lg border border-amber-200 bg-amber-50 px-4 text-sm font-semibold text-amber-600">≈ $1341.83</div>
+</div>
+<div>
+<label class="mb-2 block text-[11px] font-medium text-slate-500">Target Price</label>
+<div class="relative">
+<span class="pointer-events-none absolute inset-y-0 left-3 flex items-center text-sm font-medium text-slate-400">$</span>
+<input type="text" value="111.00" class="h-[44px] w-full rounded-lg border border-slate-200 bg-white pl-8 pr-4 text-sm text-slate-700 focus:border-primary focus:ring-1 focus:ring-primary" />
+</div>
+</div>
+</div>
+</div>
+</div>
+</article>
+
+<article class="model-card border border-slate-200 rounded-2xl overflow-hidden bg-white" data-model-card>
+<div class="p-5">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-start md:items-center">
+<div class="md:col-span-4 flex items-center gap-3 pl-2">
+<button type="button" class="w-16 h-16 bg-slate-50 rounded-lg overflow-hidden border border-slate-100 shrink-0 flex items-center justify-center cursor-zoom-in transition-transform hover:scale-[1.03]" data-model-preview-trigger data-preview-src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXzZpUM03yLGjPJBbjgXDJPQqHs-4vwak6__2g4eoXPAdTGdvZqsH66zgU-NoCamha8oOubt5aUlqCKtBZBDxDwvHiNWyD9KMy7TTkIHjPp1JTBl4NwAT1odGhGaPdxxC80G6zYIj_brnITP3qAvOegIPWwFKx1QPIKtSsRonGsoG8VMGY3F2TTQBv4iduDiTOGt6M-s3I4vmPbHt6jGGOuhtU9xKzXHc_Sk1yEb0h5oicHRhCGiaQqwSaFGE9vu4n3OiPovWLxxw" data-preview-title="90101001-Exhaust-Manifold-Tubing-rev-.step">
+<img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXzZpUM03yLGjPJBbjgXDJPQqHs-4vwak6__2g4eoXPAdTGdvZqsH66zgU-NoCamha8oOubt5aUlqCKtBZBDxDwvHiNWyD9KMy7TTkIHjPp1JTBl4NwAT1odGhGaPdxxC80G6zYIj_brnITP3qAvOegIPWwFKx1QPIKtSsRonGsoG8VMGY3F2TTQBv4iduDiTOGt6M-s3I4vmPbHt6jGGOuhtU9xKzXHc_Sk1yEb0h5oicHRhCGiaQqwSaFGE9vu4n3OiPovWLxxw" alt="90101001-Exhaust-Manifold-Tubing-rev-.step" class="w-full h-full object-contain" />
+</button>
+<div class="flex flex-col gap-1 min-w-0">
+<h3 class="font-bold text-sm text-slate-900 break-words" title="90101001-Exhaust-Manifold-Tubing-rev-.step">90101001-Exhaust-Manifold-Tubing-rev-.step</h3>
+<p class="text-[10px] text-slate-500 font-medium">303.14 x 156.77 x 102.27 mm</p>
+<p class="text-[10px] text-slate-500 font-medium">185468.61 mm³ | 163195.11 mm²</p>
+</div>
+</div>
+<div class="md:col-span-3 flex flex-col gap-1 min-w-0">
+<p class="text-xs font-bold text-slate-900">Material: 1.2 SLM - Stainless Steel 316L - $$$</p>
+<p class="text-[10px] text-slate-500">Color: Metallic Gray</p>
+<p class="text-[10px] text-slate-500">Post Process: Sand Blasted - Matte</p>
+<p class="text-[10px] text-slate-500">Printer: SLM1-280*280*350mm</p>
+<p class="text-[10px] text-slate-500">Tolerance: ISO 2768-m</p>
+<p class="text-[10px] text-slate-500">Surface Class: Standard Production</p>
+</div>
+<div class="md:col-span-1 flex md:justify-center">
+<div class="inline-flex w-12 h-8 items-center justify-center rounded-md border border-slate-200 bg-white text-sm font-semibold text-slate-900">1</div>
+</div>
+<div class="md:col-span-2 flex flex-col md:items-center justify-center text-left md:text-center">
+<p class="text-base font-bold text-primary">$215.33</p>
+<p class="text-[10px] text-slate-400 font-medium mt-0.5">$215.33/piece</p>
+<p class="mt-1 text-[9px] font-medium text-slate-500">Est. 3-5 Days</p>
+</div>
+<div class="md:col-span-2 flex flex-wrap items-center gap-x-2 gap-y-1 md:pl-2 md:border-l md:border-slate-100 min-w-0">
+<button class="toggle-model-details inline-flex items-center gap-1 text-[10px] font-semibold text-primary hover:text-primary-hover transition-colors whitespace-nowrap" type="button" aria-expanded="false">
+<span>Expand</span>
+<span class="material-symbols-outlined text-[14px] transition-transform duration-200">expand_more</span>
+</button>
+</div>
+</div>
+<div class="mt-4 flex flex-wrap items-center gap-4 text-[11px] text-slate-500">
+<div class="relative inline-flex items-center gap-1.5 pr-4">
+<span class="material-symbols-outlined text-[14px]">attachment</span>
+<span class="font-medium">Attachments</span>
+</div>
+<div class="relative inline-flex items-center gap-1.5 pr-4">
+<span class="material-symbols-outlined text-[14px]">chat_bubble_outline</span>
+<span class="font-medium">Notes</span>
+</div>
+</div>
+<div class="model-details mt-0">
+<div class="mt-5 grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-3 md:items-start">
+<div class="space-y-1 text-[11px] leading-relaxed text-slate-500 md:col-span-4 md:pl-2">
 <p><span class="font-semibold text-slate-700">Dimensions:</span> 303.14 x 156.77 x 102.27 mm</p>
-<p><span class="font-semibold text-slate-700">Material:</span> Stainless Steel 316L / Metallic Gray</p>
+<p><span class="font-semibold text-slate-700">Volume:</span> 185468.61 mm³</p>
+<p><span class="font-semibold text-slate-700">Surface Area:</span> 163195.11 mm²</p>
+</div>
+<div class="space-y-1 text-[11px] leading-relaxed text-slate-500 md:col-span-3">
+<p><span class="font-semibold text-slate-700">Material:</span> Stainless Steel 316L</p>
+<p><span class="font-semibold text-slate-700">Color:</span> Metallic Gray</p>
 <p><span class="font-semibold text-slate-700">Process:</span> Sand Blasted - Matte</p>
 <p><span class="font-semibold text-slate-700">Printer:</span> SLM1-280*280*350mm</p>
-<p><span class="font-semibold text-slate-700">Tolerance:</span> ISO 2768-m / Standard Production</p>
+<p><span class="font-semibold text-slate-700">Tolerance:</span> ISO 2768-m</p>
+<p><span class="font-semibold text-slate-700">Surface Class:</span> Standard Production</p>
+</div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
 <div>
@@ -235,20 +364,22 @@ Log Out
 <div class="p-5">
 <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-start md:items-center">
 <div class="md:col-span-4 flex items-center gap-3 pl-2">
-<div class="w-16 h-16 bg-slate-50 rounded-lg flex items-center justify-center border border-slate-100 shrink-0">
-<span class="material-symbols-outlined text-slate-300 text-3xl">view_in_ar</span>
-</div>
+<button type="button" class="w-16 h-16 bg-slate-50 rounded-lg overflow-hidden border border-slate-100 shrink-0 flex items-center justify-center cursor-zoom-in transition-transform hover:scale-[1.03]" data-model-preview-trigger data-preview-src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=400&q=80" data-preview-title="FUEL RAIL SECONDARY.stp">
+<img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=400&q=80" alt="FUEL RAIL SECONDARY.stp" class="w-full h-full object-contain" />
+</button>
 <div class="flex flex-col gap-1 min-w-0">
-<h3 class="font-bold text-sm text-slate-900 truncate" title="FUEL RAIL SECONDARY.stp">FUEL RAIL SECONDARY.stp</h3>
+<h3 class="font-bold text-sm text-slate-900 break-words" title="FUEL RAIL SECONDARY.stp">FUEL RAIL SECONDARY.stp</h3>
 <p class="text-[10px] text-slate-500 font-medium">240.00 x 34.00 x 62.00 mm</p>
-<p class="text-[10px] text-slate-500 font-medium">1 total part</p>
+<p class="text-[10px] text-slate-500 font-medium">52891.68 mm³ | 41350.53 mm²</p>
 </div>
 </div>
 <div class="md:col-span-3 flex flex-col gap-1 min-w-0">
-<p class="text-xs font-bold text-slate-900">Material: Stainless Steel 316L</p>
+<p class="text-xs font-bold text-slate-900">Material: 1.2 SLM - Stainless Steel 316L - $$$</p>
 <p class="text-[10px] text-slate-500">Color: Metallic Gray</p>
 <p class="text-[10px] text-slate-500">Post Process: Sand Blasted - Matte</p>
 <p class="text-[10px] text-slate-500">Printer: SLM1-280*280*350mm</p>
+<p class="text-[10px] text-slate-500">Tolerance: ISO 2768-m</p>
+<p class="text-[10px] text-slate-500">Surface Class: Sealing Faces Protected</p>
 </div>
 <div class="md:col-span-1 flex md:justify-center">
 <div class="inline-flex w-12 h-8 items-center justify-center rounded-md border border-slate-200 bg-white text-sm font-semibold text-slate-900">1</div>
@@ -256,7 +387,7 @@ Log Out
 <div class="md:col-span-2 flex flex-col md:items-center justify-center text-left md:text-center">
 <p class="text-base font-bold text-primary">$59.00</p>
 <p class="text-[10px] text-slate-400 font-medium mt-0.5">$59.00/piece</p>
-<p class="text-[9px] text-slate-500 font-medium mt-1 uppercase">Est. 3-5 Days</p>
+<p class="mt-1 text-[9px] font-medium text-slate-500">Est. 3-5 Days</p>
 </div>
 <div class="md:col-span-2 flex flex-wrap items-center gap-x-2 gap-y-1 md:pl-2 md:border-l md:border-slate-100 min-w-0">
 <button class="toggle-model-details inline-flex items-center gap-1 text-[10px] font-semibold text-primary hover:text-primary-hover transition-colors whitespace-nowrap" type="button" aria-expanded="false">
@@ -278,12 +409,20 @@ Log Out
 </div>
 </div>
 <div class="model-details mt-0">
-<div class="mt-5 space-y-1 text-[11px] leading-relaxed text-slate-500">
+<div class="mt-5 grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-3 md:items-start">
+<div class="space-y-1 text-[11px] leading-relaxed text-slate-500 md:col-span-4 md:pl-2">
 <p><span class="font-semibold text-slate-700">Dimensions:</span> 240.00 x 34.00 x 62.00 mm</p>
-<p><span class="font-semibold text-slate-700">Material:</span> Stainless Steel 316L / Metallic Gray</p>
+<p><span class="font-semibold text-slate-700">Volume:</span> 52891.68 mm³</p>
+<p><span class="font-semibold text-slate-700">Surface Area:</span> 41350.53 mm²</p>
+</div>
+<div class="space-y-1 text-[11px] leading-relaxed text-slate-500 md:col-span-3">
+<p><span class="font-semibold text-slate-700">Material:</span> Stainless Steel 316L</p>
+<p><span class="font-semibold text-slate-700">Color:</span> Metallic Gray</p>
 <p><span class="font-semibold text-slate-700">Process:</span> Sand Blasted - Matte</p>
 <p><span class="font-semibold text-slate-700">Printer:</span> SLM1-280*280*350mm</p>
-<p><span class="font-semibold text-slate-700">Tolerance:</span> ISO 2768-m / Sealing Faces Protected</p>
+<p><span class="font-semibold text-slate-700">Tolerance:</span> ISO 2768-m</p>
+<p><span class="font-semibold text-slate-700">Surface Class:</span> Sealing Faces Protected</p>
+</div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
 <div>
@@ -318,20 +457,22 @@ Log Out
 <div class="p-5">
 <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-start md:items-center">
 <div class="md:col-span-4 flex items-center gap-3 pl-2">
-<div class="w-16 h-16 bg-slate-50 rounded-lg flex items-center justify-center border border-slate-100 shrink-0">
-<span class="material-symbols-outlined text-slate-300 text-3xl">view_in_ar</span>
-</div>
+<button type="button" class="w-16 h-16 bg-slate-50 rounded-lg overflow-hidden border border-slate-100 shrink-0 flex items-center justify-center cursor-zoom-in transition-transform hover:scale-[1.03]" data-model-preview-trigger data-preview-src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=400&q=80" data-preview-title="Turbo_Valve_Housing_A.stl">
+<img src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?auto=format&fit=crop&w=400&q=80" alt="Turbo_Valve_Housing_A.stl" class="w-full h-full object-contain" />
+</button>
 <div class="flex flex-col gap-1 min-w-0">
-<h3 class="font-bold text-sm text-slate-900 truncate" title="Turbo_Valve_Housing_A.stl">Turbo_Valve_Housing_A.stl</h3>
+<h3 class="font-bold text-sm text-slate-900 break-words" title="Turbo_Valve_Housing_A.stl">Turbo_Valve_Housing_A.stl</h3>
 <p class="text-[10px] text-slate-500 font-medium">180.60 x 122.40 x 76.30 mm</p>
-<p class="text-[10px] text-slate-500 font-medium">2 total parts</p>
+<p class="text-[10px] text-slate-500 font-medium">84210.88 mm³ | 61244.19 mm²</p>
 </div>
 </div>
 <div class="md:col-span-3 flex flex-col gap-1 min-w-0">
-<p class="text-xs font-bold text-slate-900">Material: Aluminum AlSi10Mg</p>
+<p class="text-xs font-bold text-slate-900">Material: AlSi10Mg - Natural Silver - $$</p>
 <p class="text-[10px] text-slate-500">Color: Natural Silver</p>
 <p class="text-[10px] text-slate-500">Post Process: Bead Blasted</p>
 <p class="text-[10px] text-slate-500">Printer: SLM1-280*280*350mm</p>
+<p class="text-[10px] text-slate-500">Tolerance: ISO 2768-f</p>
+<p class="text-[10px] text-slate-500">Surface Class: Standard Structural</p>
 </div>
 <div class="md:col-span-1 flex md:justify-center">
 <div class="inline-flex w-12 h-8 items-center justify-center rounded-md border border-slate-200 bg-white text-sm font-semibold text-slate-900">2</div>
@@ -339,7 +480,7 @@ Log Out
 <div class="md:col-span-2 flex flex-col md:items-center justify-center text-left md:text-center">
 <p class="text-base font-bold text-primary">$132.40</p>
 <p class="text-[10px] text-slate-400 font-medium mt-0.5">$66.20/piece</p>
-<p class="text-[9px] text-slate-500 font-medium mt-1 uppercase">Est. 4-6 Days</p>
+<p class="mt-1 text-[9px] font-medium text-slate-500">Est. 4-6 Days</p>
 </div>
 <div class="md:col-span-2 flex flex-wrap items-center gap-x-2 gap-y-1 md:pl-2 md:border-l md:border-slate-100 min-w-0">
 <button class="toggle-model-details inline-flex items-center gap-1 text-[10px] font-semibold text-primary hover:text-primary-hover transition-colors whitespace-nowrap" type="button" aria-expanded="false">
@@ -359,12 +500,20 @@ Log Out
 </div>
 </div>
 <div class="model-details mt-0">
-<div class="mt-5 space-y-1 text-[11px] leading-relaxed text-slate-500">
+<div class="mt-5 grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-3 md:items-start">
+<div class="space-y-1 text-[11px] leading-relaxed text-slate-500 md:col-span-4 md:pl-2">
 <p><span class="font-semibold text-slate-700">Dimensions:</span> 180.60 x 122.40 x 76.30 mm</p>
-<p><span class="font-semibold text-slate-700">Material:</span> Aluminum AlSi10Mg / Natural Silver</p>
+<p><span class="font-semibold text-slate-700">Volume:</span> 84210.88 mm³</p>
+<p><span class="font-semibold text-slate-700">Surface Area:</span> 61244.19 mm²</p>
+</div>
+<div class="space-y-1 text-[11px] leading-relaxed text-slate-500 md:col-span-3">
+<p><span class="font-semibold text-slate-700">Material:</span> Aluminum AlSi10Mg</p>
+<p><span class="font-semibold text-slate-700">Color:</span> Natural Silver</p>
 <p><span class="font-semibold text-slate-700">Process:</span> Bead Blasted</p>
 <p><span class="font-semibold text-slate-700">Printer:</span> SLM1-280*280*350mm</p>
-<p><span class="font-semibold text-slate-700">Tolerance:</span> ISO 2768-f / Structural Assembly Ready</p>
+<p><span class="font-semibold text-slate-700">Tolerance:</span> ISO 2768-f</p>
+<p><span class="font-semibold text-slate-700">Surface Class:</span> Standard Structural</p>
+</div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
 <div>
@@ -393,20 +542,29 @@ Log Out
 <div class="p-5">
 <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-start md:items-center">
 <div class="md:col-span-4 flex items-center gap-3 pl-2">
-<div class="w-16 h-16 bg-slate-50 rounded-lg flex items-center justify-center border border-slate-100 shrink-0">
-<span class="material-symbols-outlined text-slate-300 text-3xl">view_in_ar</span>
-</div>
+<button type="button" class="w-16 h-16 bg-slate-50 rounded-lg overflow-hidden border border-slate-100 shrink-0 flex items-center justify-center cursor-zoom-in transition-transform hover:scale-[1.03]" data-model-preview-trigger data-preview-src="https://images.unsplash.com/photo-1565035010268-a3816f98589a?auto=format&fit=crop&w=400&q=80" data-preview-title="Cooling_Manifold_Beta.step">
+<img src="https://images.unsplash.com/photo-1565035010268-a3816f98589a?auto=format&fit=crop&w=400&q=80" alt="Cooling_Manifold_Beta.step" class="w-full h-full object-contain" />
+</button>
 <div class="flex flex-col gap-1 min-w-0">
-<h3 class="font-bold text-sm text-slate-900 truncate" title="Cooling_Manifold_Beta.step">Cooling_Manifold_Beta.step</h3>
+<h3 class="font-bold text-sm text-slate-900 break-words" title="Cooling_Manifold_Beta.step">Cooling_Manifold_Beta.step</h3>
 <p class="text-[10px] text-slate-500 font-medium">128.20 x 95.70 x 64.10 mm</p>
-<p class="text-[10px] text-slate-500 font-medium">1 total part</p>
+<p class="text-[10px] text-slate-500 font-medium">61220.30 mm³ | 44882.64 mm²</p>
 </div>
 </div>
 <div class="md:col-span-3 flex flex-col gap-1 min-w-0">
-<p class="text-xs font-bold text-slate-900">Material: Titanium Ti64</p>
-<p class="text-[10px] text-slate-500">Color: Raw Finish</p>
+<p class="text-xs font-bold text-slate-900">Material: Titanium Ti64 - Raw Finish - $$$$</p>
+<p class="text-[10px] text-slate-500">Color: Raw Metallic</p>
 <p class="text-[10px] text-slate-500">Post Process: Support Removal + QC</p>
 <p class="text-[10px] text-slate-500">Printer: SLM1-280*280*350mm</p>
+<p class="text-[10px] text-slate-500">Tolerance: ISO 2768-f</p>
+<p class="text-[10px] text-slate-500">Surface Class: Pressure-Test Ready</p>
+<p class="text-[10px] text-slate-500">Layer Height: 40μm</p>
+<p class="text-[10px] text-slate-500">Heat Treatment: Stress Relief</p>
+<p class="text-[10px] text-slate-500">Build Orientation: Critical Face Up</p>
+<p class="text-[10px] text-slate-500">Support Strategy: Dense Internal Supports</p>
+<p class="text-[10px] text-slate-500">Inspection: CMM + Visual QC</p>
+<p class="text-[10px] text-slate-500">Surface Roughness Target: Ra 6.3</p>
+<p class="text-[10px] text-slate-500">Packaging: Vacuum Bag + Foam Protection</p>
 </div>
 <div class="md:col-span-1 flex md:justify-center">
 <div class="inline-flex w-12 h-8 items-center justify-center rounded-md border border-slate-200 bg-white text-sm font-semibold text-slate-900">1</div>
@@ -414,7 +572,7 @@ Log Out
 <div class="md:col-span-2 flex flex-col md:items-center justify-center text-left md:text-center">
 <p class="text-base font-bold text-primary">$188.90</p>
 <p class="text-[10px] text-slate-400 font-medium mt-0.5">$188.90/piece</p>
-<p class="text-[9px] text-slate-500 font-medium mt-1 uppercase">Est. 5-7 Days</p>
+<p class="mt-1 text-[9px] font-medium text-slate-500">Est. 5-7 Days</p>
 </div>
 <div class="md:col-span-2 flex flex-wrap items-center gap-x-2 gap-y-1 md:pl-2 md:border-l md:border-slate-100 min-w-0">
 <button class="toggle-model-details inline-flex items-center gap-1 text-[10px] font-semibold text-primary hover:text-primary-hover transition-colors whitespace-nowrap" type="button" aria-expanded="false">
@@ -434,12 +592,20 @@ Log Out
 </div>
 </div>
 <div class="model-details mt-0">
-<div class="mt-5 space-y-1 text-[11px] leading-relaxed text-slate-500">
+<div class="mt-5 grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-3 md:items-start">
+<div class="space-y-1 text-[11px] leading-relaxed text-slate-500 md:col-span-4 md:pl-2">
 <p><span class="font-semibold text-slate-700">Dimensions:</span> 128.20 x 95.70 x 64.10 mm</p>
-<p><span class="font-semibold text-slate-700">Material:</span> Titanium Ti64 / Raw Finish</p>
+<p><span class="font-semibold text-slate-700">Volume:</span> 61220.30 mm³</p>
+<p><span class="font-semibold text-slate-700">Surface Area:</span> 44882.64 mm²</p>
+</div>
+<div class="space-y-1 text-[11px] leading-relaxed text-slate-500 md:col-span-3">
+<p><span class="font-semibold text-slate-700">Material:</span> Titanium Ti64</p>
+<p><span class="font-semibold text-slate-700">Color:</span> Raw Metallic</p>
 <p><span class="font-semibold text-slate-700">Process:</span> Support Removal + QC</p>
 <p><span class="font-semibold text-slate-700">Printer:</span> SLM1-280*280*350mm</p>
-<p><span class="font-semibold text-slate-700">Tolerance:</span> ISO 2768-f / Pressure-Test Ready</p>
+<p><span class="font-semibold text-slate-700">Tolerance:</span> ISO 2768-f</p>
+<p><span class="font-semibold text-slate-700">Surface Class:</span> Pressure-Test Ready</p>
+</div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
 <div>
@@ -468,20 +634,22 @@ Log Out
 <div class="p-5">
 <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-start md:items-center">
 <div class="md:col-span-4 flex items-center gap-3 pl-2">
-<div class="w-16 h-16 bg-slate-50 rounded-lg flex items-center justify-center border border-slate-100 shrink-0">
-<span class="material-symbols-outlined text-slate-300 text-3xl">view_in_ar</span>
-</div>
+<button type="button" class="w-16 h-16 bg-slate-50 rounded-lg overflow-hidden border border-slate-100 shrink-0 flex items-center justify-center cursor-zoom-in transition-transform hover:scale-[1.03]" data-model-preview-trigger data-preview-src="https://images.unsplash.com/photo-1581092335397-9fa3411081c7?auto=format&fit=crop&w=400&q=80" data-preview-title="Pump_Bracket_Gamma.step">
+<img src="https://images.unsplash.com/photo-1581092335397-9fa3411081c7?auto=format&fit=crop&w=400&q=80" alt="Pump_Bracket_Gamma.step" class="w-full h-full object-contain" />
+</button>
 <div class="flex flex-col gap-1 min-w-0">
-<h3 class="font-bold text-sm text-slate-900 truncate" title="Pump_Bracket_Gamma.step">Pump_Bracket_Gamma.step</h3>
+<h3 class="font-bold text-sm text-slate-900 break-words" title="Pump_Bracket_Gamma.step">Pump_Bracket_Gamma.step</h3>
 <p class="text-[10px] text-slate-500 font-medium">156.00 x 88.00 x 42.00 mm</p>
-<p class="text-[10px] text-slate-500 font-medium">1 total part</p>
+<p class="text-[10px] text-slate-500 font-medium">48880.15 mm³ | 29112.83 mm²</p>
 </div>
 </div>
 <div class="md:col-span-3 flex flex-col gap-1 min-w-0">
-<p class="text-xs font-bold text-slate-900">Material: Stainless Steel 316L</p>
+<p class="text-xs font-bold text-slate-900">Material: Stainless Steel 316L - Metallic Gray - $$$</p>
 <p class="text-[10px] text-slate-500">Color: Metallic Gray</p>
 <p class="text-[10px] text-slate-500">Post Process: Shot Peened + Deburred</p>
 <p class="text-[10px] text-slate-500">Printer: SLM1-280*280*350mm</p>
+<p class="text-[10px] text-slate-500">Tolerance: ISO 2768-f</p>
+<p class="text-[10px] text-slate-500">Surface Class: Inspection Points Attached</p>
 </div>
 <div class="md:col-span-1 flex md:justify-center">
 <div class="inline-flex w-12 h-8 items-center justify-center rounded-md border border-slate-200 bg-white text-sm font-semibold text-slate-900">1</div>
@@ -489,7 +657,7 @@ Log Out
 <div class="md:col-span-2 flex flex-col md:items-center justify-center text-left md:text-center">
 <p class="text-base font-bold text-primary">$96.40</p>
 <p class="text-[10px] text-slate-400 font-medium mt-0.5">$96.40/piece</p>
-<p class="text-[9px] text-slate-500 font-medium mt-1 uppercase">Est. 4-6 Days</p>
+<p class="mt-1 text-[9px] font-medium text-slate-500">Est. 4-6 Days</p>
 </div>
 <div class="md:col-span-2 flex flex-wrap items-center gap-x-2 gap-y-1 md:pl-2 md:border-l md:border-slate-100 min-w-0">
 <button class="toggle-model-details inline-flex items-center gap-1 text-[10px] font-semibold text-primary hover:text-primary-hover transition-colors whitespace-nowrap" type="button" aria-expanded="false">
@@ -510,12 +678,20 @@ Log Out
 </div>
 </div>
 <div class="model-details mt-0">
-<div class="mt-5 space-y-1 text-[11px] leading-relaxed text-slate-500">
+<div class="mt-5 grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-3 md:items-start">
+<div class="space-y-1 text-[11px] leading-relaxed text-slate-500 md:col-span-4 md:pl-2">
 <p><span class="font-semibold text-slate-700">Dimensions:</span> 156.00 x 88.00 x 42.00 mm</p>
-<p><span class="font-semibold text-slate-700">Material:</span> Stainless Steel 316L / Metallic Gray</p>
+<p><span class="font-semibold text-slate-700">Volume:</span> 48880.15 mm³</p>
+<p><span class="font-semibold text-slate-700">Surface Area:</span> 29112.83 mm²</p>
+</div>
+<div class="space-y-1 text-[11px] leading-relaxed text-slate-500 md:col-span-3">
+<p><span class="font-semibold text-slate-700">Material:</span> Stainless Steel 316L</p>
+<p><span class="font-semibold text-slate-700">Color:</span> Metallic Gray</p>
 <p><span class="font-semibold text-slate-700">Process:</span> Shot Peened + Deburred</p>
 <p><span class="font-semibold text-slate-700">Printer:</span> SLM1-280*280*350mm</p>
-<p><span class="font-semibold text-slate-700">Tolerance:</span> ISO 2768-f / Inspection Points Attached</p>
+<p><span class="font-semibold text-slate-700">Tolerance:</span> ISO 2768-f</p>
+<p><span class="font-semibold text-slate-700">Surface Class:</span> Inspection Points Attached</p>
+</div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
 <div>
@@ -557,20 +733,22 @@ Log Out
 <div class="p-5">
 <div class="grid grid-cols-1 md:grid-cols-12 gap-3 items-start md:items-center">
 <div class="md:col-span-4 flex items-center gap-3 pl-2">
-<div class="w-16 h-16 bg-slate-50 rounded-lg flex items-center justify-center border border-slate-100 shrink-0">
-<span class="material-symbols-outlined text-slate-300 text-3xl">view_in_ar</span>
-</div>
+<button type="button" class="w-16 h-16 bg-slate-50 rounded-lg overflow-hidden border border-slate-100 shrink-0 flex items-center justify-center cursor-zoom-in transition-transform hover:scale-[1.03]" data-model-preview-trigger data-preview-src="https://images.unsplash.com/photo-1565035010268-a3816f98589a?auto=format&fit=crop&w=400&q=80" data-preview-title="Nozzle_Array_Epsilon.stl">
+<img src="https://images.unsplash.com/photo-1565035010268-a3816f98589a?auto=format&fit=crop&w=400&q=80" alt="Nozzle_Array_Epsilon.stl" class="w-full h-full object-contain" />
+</button>
 <div class="flex flex-col gap-1 min-w-0">
-<h3 class="font-bold text-sm text-slate-900 truncate" title="Nozzle_Array_Epsilon.stl">Nozzle_Array_Epsilon.stl</h3>
+<h3 class="font-bold text-sm text-slate-900 break-words" title="Nozzle_Array_Epsilon.stl">Nozzle_Array_Epsilon.stl</h3>
 <p class="text-[10px] text-slate-500 font-medium">92.40 x 48.70 x 36.50 mm</p>
-<p class="text-[10px] text-slate-500 font-medium">1 total part</p>
+<p class="text-[10px] text-slate-500 font-medium">18332.20 mm³ | 11228.40 mm²</p>
 </div>
 </div>
 <div class="md:col-span-3 flex flex-col gap-1 min-w-0">
-<p class="text-xs font-bold text-slate-900">Material: Aluminum AlSi10Mg</p>
+<p class="text-xs font-bold text-slate-900">Material: AlSi10Mg - Natural Silver - $$</p>
 <p class="text-[10px] text-slate-500">Color: Natural Silver</p>
 <p class="text-[10px] text-slate-500">Post Process: Fine Bead Blast</p>
 <p class="text-[10px] text-slate-500">Printer: SLM1-280*280*350mm</p>
+<p class="text-[10px] text-slate-500">Tolerance: ISO 2768-f</p>
+<p class="text-[10px] text-slate-500">Surface Class: Sharp Outlet Edges</p>
 </div>
 <div class="md:col-span-1 flex md:justify-center">
 <div class="inline-flex w-12 h-8 items-center justify-center rounded-md border border-slate-200 bg-white text-sm font-semibold text-slate-900">1</div>
@@ -578,7 +756,7 @@ Log Out
 <div class="md:col-span-2 flex flex-col md:items-center justify-center text-left md:text-center">
 <p class="text-base font-bold text-primary">$74.50</p>
 <p class="text-[10px] text-slate-400 font-medium mt-0.5">$74.50/piece</p>
-<p class="text-[9px] text-slate-500 font-medium mt-1 uppercase">Est. 2-4 Days</p>
+<p class="mt-1 text-[9px] font-medium text-slate-500">Est. 2-4 Days</p>
 </div>
 <div class="md:col-span-2 flex flex-wrap items-center gap-x-2 gap-y-1 md:pl-2 md:border-l md:border-slate-100 min-w-0">
 <button class="toggle-model-details inline-flex items-center gap-1 text-[10px] font-semibold text-primary hover:text-primary-hover transition-colors whitespace-nowrap" type="button" aria-expanded="false">
@@ -599,12 +777,20 @@ Log Out
 </div>
 </div>
 <div class="model-details mt-0">
-<div class="mt-5 space-y-1 text-[11px] leading-relaxed text-slate-500">
+<div class="mt-5 grid grid-cols-1 gap-6 md:grid-cols-12 md:gap-3 md:items-start">
+<div class="space-y-1 text-[11px] leading-relaxed text-slate-500 md:col-span-4 md:pl-2">
 <p><span class="font-semibold text-slate-700">Dimensions:</span> 92.40 x 48.70 x 36.50 mm</p>
-<p><span class="font-semibold text-slate-700">Material:</span> Aluminum AlSi10Mg / Natural Silver</p>
+<p><span class="font-semibold text-slate-700">Volume:</span> 18332.20 mm³</p>
+<p><span class="font-semibold text-slate-700">Surface Area:</span> 11228.40 mm²</p>
+</div>
+<div class="space-y-1 text-[11px] leading-relaxed text-slate-500 md:col-span-3">
+<p><span class="font-semibold text-slate-700">Material:</span> Aluminum AlSi10Mg</p>
+<p><span class="font-semibold text-slate-700">Color:</span> Natural Silver</p>
 <p><span class="font-semibold text-slate-700">Process:</span> Fine Bead Blast</p>
 <p><span class="font-semibold text-slate-700">Printer:</span> SLM1-280*280*350mm</p>
-<p><span class="font-semibold text-slate-700">Tolerance:</span> ISO 2768-f / Sharp Outlet Edges</p>
+<p><span class="font-semibold text-slate-700">Tolerance:</span> ISO 2768-f</p>
+<p><span class="font-semibold text-slate-700">Surface Class:</span> Sharp Outlet Edges</p>
+</div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
 <div>
@@ -639,8 +825,8 @@ Log Out
 <section class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm space-y-6">
 <div>
 <div class="flex justify-between items-center mb-4">
-<h3 class="text-[10px] uppercase text-slate-500 font-bold tracking-[0.1em]">Shipping Address</h3>
-<button class="text-[10px] font-bold text-primary uppercase hover:underline">+ Add New</button>
+<h3 class="text-[10px] font-bold tracking-[0.08em] text-slate-500">Shipping Address</h3>
+<button class="text-[10px] font-bold tracking-[0.08em] text-primary hover:underline">+ Add New</button>
 </div>
 <div class="relative">
 <select class="w-full bg-white bg-none border border-slate-200 rounded-lg text-sm text-slate-700 py-3 pl-4 pr-10 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all cursor-pointer">
@@ -671,8 +857,8 @@ Log Out
 </label>
 <div id="billing-address-section" class="hidden pt-2 border-t border-slate-100">
 <div class="flex justify-between items-center mb-4">
-<h3 class="text-[10px] uppercase text-slate-500 font-bold tracking-[0.1em]">Billing Address</h3>
-<button class="text-[10px] font-bold text-primary uppercase hover:underline">+ Add New</button>
+<h3 class="text-[10px] font-bold tracking-[0.08em] text-slate-500">Billing Address</h3>
+<button class="text-[10px] font-bold tracking-[0.08em] text-primary hover:underline">+ Add New</button>
 </div>
 <div class="relative">
 <select class="w-full bg-white bg-none border border-slate-200 rounded-lg text-sm text-slate-700 py-3 pl-4 pr-10 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all cursor-pointer">
@@ -700,11 +886,11 @@ Log Out
 </section>
 <!-- Shipping Method -->
 <section class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
-<h3 class="text-[10px] uppercase text-slate-500 font-bold tracking-[0.1em] mb-4">Shipping Method</h3>
+<h3 class="mb-4 text-[10px] font-bold tracking-[0.08em] text-slate-500">Shipping Method</h3>
 <div class="relative mb-4">
 <select id="shipping-method-select" class="w-full bg-white bg-none border border-slate-200 rounded-lg text-sm text-slate-700 py-3 pl-4 pr-10 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all cursor-pointer">
-<option value="tariff-free" data-badge="5-7 BUSINESS DAYS" data-copy="Carrier: Occasionally Delayed Due to Customs Inspection!">Tariff-Free Shipping</option>
-<option value="express-air" data-badge="2-3 BUSINESS DAYS" data-copy="Carrier: Priority routing with additional surcharge.">Express Air (2-3 Days)</option>
+<option value="tariff-free" data-badge="5-7 Business Days" data-copy="Carrier: Occasionally Delayed Due to Customs Inspection!">Tariff-Free Shipping</option>
+<option value="express-air" data-badge="2-3 Business Days" data-copy="Carrier: Priority routing with additional surcharge.">Express Air (2-3 Days)</option>
 </select>
 <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
 <span class="material-symbols-outlined text-lg">expand_more</span>
@@ -716,7 +902,7 @@ Log Out
 <span class="material-symbols-outlined text-slate-600">local_shipping</span>
 <span id="shipping-method-label" class="text-xs font-bold text-slate-900">Tariff-Free Shipping</span>
 </div>
-<span id="shipping-method-badge" class="bg-blue-100 text-primary text-[9px] font-bold px-2 py-0.5 rounded-sm">5-7 BUSINESS DAYS</span>
+<span id="shipping-method-badge" class="bg-blue-100 text-primary text-[9px] font-bold px-2 py-0.5 rounded-sm">5-7 Business Days</span>
 </div>
 <p id="shipping-method-copy" class="text-[10px] text-slate-500">Carrier: Occasionally Delayed Due to Customs Inspection!</p>
 </div>
@@ -733,7 +919,7 @@ Log Out
 </div>
 <span class="text-sm font-medium text-slate-900">PayPal Fast and Secure Payment</span>
 </div>
-<span class="text-[10px] font-bold text-success uppercase tracking-wider">Recommended</span>
+<span class="text-[10px] font-bold tracking-[0.08em] text-success">Recommended</span>
 </label>
 <label class="flex items-center p-4 rounded-lg border border-slate-200 hover:border-slate-300 hover:bg-slate-50 transition-all cursor-pointer">
 <input class="w-4 h-4 border-slate-300 text-primary focus:ring-primary mr-4" name="payment" type="radio"/>
@@ -753,7 +939,7 @@ Log Out
 </div>
 </label>
 </div>
-<button class="mt-6 w-full inline-flex items-center justify-center bg-primary text-white font-bold rounded-lg uppercase tracking-wider text-sm py-4 hover:bg-primary-hover transition-all shadow-md shadow-primary/20 active:scale-[0.99]">
+<button class="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-primary py-4 text-sm font-bold tracking-[0.04em] text-white transition-all hover:bg-primary-hover shadow-md shadow-primary/20 active:scale-[0.99]">
 <span>Confirm Payment</span>
 </button>
 </section>
@@ -762,34 +948,33 @@ Log Out
 <aside class="space-y-6">
 <!-- Order Summary -->
 <div class="bg-white rounded-xl p-6 border border-slate-200 shadow-sm">
-<h2 class="text-sm font-bold uppercase tracking-widest text-slate-900 mb-1">Order Summary</h2>
-<p class="text-[10px] text-slate-400 uppercase font-bold mb-6">Estimated Production: 3-5 business days</p>
-<div class="space-y-4 mb-6">
-<div class="flex justify-between text-sm">
-<span class="text-slate-500">Subtotal (6 items, 7 total parts)</span>
-<span class="font-medium text-slate-900">$766.53</span>
+<h2 class="mb-1 text-sm font-bold tracking-[0.08em] text-slate-900">Order Summary</h2>
+<div class="space-y-4 mt-6">
+<div class="flex justify-between text-sm gap-4">
+<span class="text-slate-500">Estimated Production</span>
+<span class="font-medium text-slate-900 text-right">8-13 business days</span>
 </div>
 <div class="flex justify-between text-sm">
 <span class="text-slate-500">Shipping Fee</span>
-<span class="font-medium text-slate-900">$65.00</span>
+<span class="font-medium text-amber-500">≈ $65.00</span>
+</div>
+<div class="flex justify-between text-sm">
+<span class="text-slate-500">Subtotal (7 order items)</span>
+<span class="font-medium text-amber-500">≈ $2108.36</span>
 </div>
 <div id="coupon-discount-row" class="hidden flex justify-between text-sm">
 <span class="text-slate-500">Coupon Discount</span>
 <span id="coupon-discount-value" class="font-medium text-emerald-600">-$20.00</span>
 </div>
 </div>
-<div class="pt-4 border-t border-slate-100 mb-6">
-<div class="flex justify-between items-end">
+<div class="pt-4 border-t border-slate-100">
+<div class="flex justify-between items-center">
 <span class="text-lg font-bold text-slate-900">Total</span>
 <div class="text-right">
-<div id="summary-original-total" class="hidden mb-1 text-xl leading-none font-semibold text-slate-400 line-through decoration-2 decoration-slate-400">$831.53</div>
-<div id="summary-total" class="text-3xl leading-none font-bold text-primary transition-colors duration-200">$831.53</div>
+<div id="summary-original-total" class="hidden mb-1 text-xl leading-none font-semibold text-slate-400 line-through decoration-2 decoration-slate-400">≈ $2173.36</div>
+<div id="summary-total" class="text-3xl leading-none font-bold text-amber-500 transition-colors duration-200">≈ $2173.36</div>
 </div>
 </div>
-</div>
-<div class="text-sm text-slate-500 flex items-center justify-between">
-<span>Estimated Production:</span>
-<span class="font-medium text-slate-900">3-5 business days</span>
 </div>
 </div>
 
@@ -803,23 +988,12 @@ Log Out
     <div class="relative">
         <select id="coupon-select" class="w-full bg-white bg-none border border-slate-200 rounded-lg text-sm text-slate-700 py-3 pl-4 pr-10 appearance-none focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all cursor-pointer">
             <option value="">Select a coupon</option>
-            <option value="new_usd20" data-discount="20.00" data-label="$20.00 OFF — Expires: Jul 1">Cash Savings  $20.00 OFF — Expires: Jul 1</option>
-            <option value="bulk10" data-discount="10.00" data-label="$10.00 OFF — Expires: Aug 15">Volume Bonus  $10.00 OFF — Expires: Aug 15</option>
+            <option value="new_usd20" data-discount="20.00" data-label="$20.00 Off — Expires: Jul 1">Cash Savings  $20.00 Off — Expires: Jul 1</option>
+            <option value="bulk10" data-discount="10.00" data-label="$10.00 Off — Expires: Aug 15">Volume Bonus  $10.00 Off — Expires: Aug 15</option>
         </select>
-        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400">
-            <span class="material-symbols-outlined text-lg">expand_more</span>
-        </div>
-    </div>
-    <div id="coupon-applied-summary" class="hidden rounded-lg border border-primary/30 bg-blue-50 px-4 py-3 text-[13px]">
-        <div class="flex items-center justify-between gap-3">
-            <div class="flex items-center gap-2 min-w-0">
-                <span class="bg-lime-100 text-lime-700 text-[11px] font-medium px-3 py-1 rounded-md whitespace-nowrap">Cash Savings</span>
-                <span id="coupon-applied-label" class="truncate text-slate-700">$20.00 OFF — Expires: Jul 1</span>
-            </div>
-            <button id="remove-coupon-btn" class="text-red-500 hover:text-red-600 transition-colors">
-                <span class="material-symbols-outlined text-sm">close</span>
-            </button>
-        </div>
+        <button id="coupon-select-action" type="button" class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-400 transition-colors">
+            <span id="coupon-select-action-icon" class="material-symbols-outlined text-lg">expand_more</span>
+        </button>
     </div>
     <div id="coupon-available-card" class="hidden rounded-xl border border-emerald-200 bg-[radial-gradient(circle_at_top_left,_rgba(187,247,208,0.55),_rgba(255,255,255,0.96)_65%)] px-5 py-4">
         <div class="flex items-start justify-between gap-4">
@@ -827,7 +1001,7 @@ Log Out
                 <p class="text-sm text-slate-500">Code: new_usd20</p>
                 <div class="mt-4 flex items-end gap-2 whitespace-nowrap">
                     <span class="text-[2.2rem] leading-none font-light text-emerald-600">$20</span>
-                    <span class="text-lg leading-none text-slate-700">OFF, no order minimum</span>
+                    <span class="text-lg leading-none text-slate-700">Off, no order minimum</span>
                 </div>
                 <p class="mt-4 text-sm text-slate-500">-45 uses left</p>
                 <p class="mt-3 text-sm text-slate-500">Expires: Jul 1, 2026</p>
@@ -854,6 +1028,7 @@ Log Out
         const icon = button.querySelector('.material-symbols-outlined');
         const label = button.querySelector('span:first-child');
 
+        card.classList.toggle('is-collapsed', !expanded);
         details.classList.toggle('is-open', expanded);
         details.classList.toggle('mt-3', expanded);
         details.classList.toggle('mt-0', !expanded);
@@ -863,6 +1038,19 @@ Log Out
         icon.classList.toggle('rotate-180', !expanded);
     }
 
+    function prepareCardSummary(card) {
+        const topGrid = card.querySelector('.grid');
+        if (!topGrid) return;
+        const columns = Array.from(topGrid.children);
+        const fileSummary = columns[0]?.querySelector('div.flex.flex-col.gap-1.min-w-0');
+        const configSummary = columns[1];
+        const badgesRow = card.querySelector('.model-details')?.previousElementSibling;
+
+        fileSummary?.classList.add('summary-file');
+        configSummary?.classList.add('summary-config');
+        badgesRow?.classList.add('summary-badges');
+    }
+
     function syncToggleAllLabel() {
         const allExpanded = modelCards.every((card) => card.querySelector('.model-details').classList.contains('is-open'));
         toggleAllLabel.textContent = allExpanded ? 'Collapse All' : 'Expand All';
@@ -870,6 +1058,8 @@ Log Out
     }
 
     modelCards.forEach((card) => {
+        prepareCardSummary(card);
+        setCardExpanded(card, false);
         const button = card.querySelector('.toggle-model-details');
         button.addEventListener('click', () => {
             const details = card.querySelector('.model-details');
@@ -884,6 +1074,8 @@ Log Out
         modelCards.forEach((card) => setCardExpanded(card, shouldExpand));
         syncToggleAllLabel();
     });
+
+    syncToggleAllLabel();
 </script>
 <!-- Footer -->
 <footer class="bg-white border-t border-slate-200 pt-12 pb-6">
@@ -921,6 +1113,22 @@ Address: 8th Floor, Biaofan Technology Building, Tower C, No.6 Gongye Road, Baoa
 <p class="text-sm text-slate-400 text-center">© 2018-2025 ProtoTi. All Rights Reserved.</p>
 </div>
 </footer>
+<div id="modelPreviewModal" class="fixed inset-0 z-[120] hidden items-center justify-center bg-slate-950/55 px-3 py-4 backdrop-blur-sm sm:px-6 sm:py-8">
+<div class="absolute inset-0" data-model-preview-close></div>
+<div class="relative z-10 flex h-[92vh] w-full max-w-[min(96vw,1920px)] flex-col overflow-hidden rounded-[1.75rem] bg-white shadow-2xl">
+<div class="flex items-center justify-between gap-4 border-b border-slate-200 px-5 py-4 sm:px-6">
+<h3 id="modelPreviewTitle" class="text-xl font-medium tracking-tight text-slate-900 sm:text-[1.95rem]">3D Preview</h3>
+<button type="button" class="inline-flex h-9 w-9 items-center justify-center rounded-full text-slate-500 transition-colors hover:bg-slate-100 hover:text-slate-900" data-model-preview-close>
+<span class="material-symbols-outlined text-[22px]">close</span>
+</button>
+</div>
+<div id="modelPreviewStage" class="flex-1 p-3 sm:p-4 [perspective:1600px] cursor-grab active:cursor-grabbing">
+<div class="flex h-full items-center justify-center overflow-hidden rounded-[1.5rem] bg-slate-50">
+<img id="modelPreviewImage" src="" alt="Model preview" class="pointer-events-none max-h-full max-w-full object-contain select-none drop-shadow-[0_28px_80px_rgba(15,23,42,0.18)] transition-transform duration-75" referrerpolicy="no-referrer" draggable="false" />
+</div>
+</div>
+</div>
+</div>
 <script>
 const wrapper = document.getElementById('user-menu-wrapper');
 const dropdown = document.getElementById('user-dropdown');
@@ -959,51 +1167,57 @@ if (shippingMethodSelect && shippingMethodLabel && shippingMethodBadge && shippi
 }
 
 const couponSelect = document.getElementById('coupon-select');
-const removeCouponBtn = document.getElementById('remove-coupon-btn');
+const couponSelectAction = document.getElementById('coupon-select-action');
+const couponSelectActionIcon = document.getElementById('coupon-select-action-icon');
 const couponDiscountRow = document.getElementById('coupon-discount-row');
 const couponDiscountValue = document.getElementById('coupon-discount-value');
 const summaryOriginalTotal = document.getElementById('summary-original-total');
 const summaryTotal = document.getElementById('summary-total');
-const couponAppliedSummary = document.getElementById('coupon-applied-summary');
-const couponAppliedLabel = document.getElementById('coupon-applied-label');
 const couponAvailableCard = document.getElementById('coupon-available-card');
 
 if (
   couponSelect &&
-  removeCouponBtn &&
+  couponSelectAction &&
+  couponSelectActionIcon &&
   couponDiscountRow &&
   couponDiscountValue &&
   summaryOriginalTotal &&
   summaryTotal &&
-  couponAppliedSummary &&
-  couponAppliedLabel &&
   couponAvailableCard
 ) {
-  const baseTotal = 831.53;
+  const baseTotal = 2173.36;
+
+  const syncCouponSelectAction = () => {
+    const hasCoupon = Boolean(couponSelect.value);
+    couponSelectAction.classList.toggle('pointer-events-none', !hasCoupon);
+    couponSelectAction.classList.toggle('cursor-pointer', hasCoupon);
+    couponSelectAction.classList.toggle('hover:text-red-500', hasCoupon);
+    couponSelectAction.classList.toggle('hover:text-red-600', hasCoupon);
+    couponSelectActionIcon.textContent = 'expand_more';
+  };
 
   const applyCoupon = () => {
     const option = couponSelect.options[couponSelect.selectedIndex];
     const discount = Number(option?.dataset?.discount || 0);
     if (!discount) return;
     couponDiscountRow.classList.remove('hidden');
-    couponAppliedSummary.classList.remove('hidden');
     couponAvailableCard.classList.remove('hidden');
     couponAvailableCard.classList.add('opacity-70');
     couponDiscountValue.textContent = `-$${discount.toFixed(2)}`;
-    couponAppliedLabel.textContent = option.dataset.label || option.textContent;
     summaryOriginalTotal.classList.remove('hidden');
-    summaryOriginalTotal.textContent = `$${baseTotal.toFixed(2)}`;
-    summaryTotal.textContent = `$${(baseTotal - discount).toFixed(2)}`;
+    summaryOriginalTotal.textContent = `≈ $${baseTotal.toFixed(2)}`;
+    summaryTotal.textContent = `≈ $${(baseTotal - discount).toFixed(2)}`;
+    syncCouponSelectAction();
   };
 
   const removeCoupon = () => {
     couponSelect.value = '';
     couponDiscountRow.classList.add('hidden');
-    couponAppliedSummary.classList.add('hidden');
     couponAvailableCard.classList.add('hidden');
     couponAvailableCard.classList.remove('opacity-70');
     summaryOriginalTotal.classList.add('hidden');
-    summaryTotal.textContent = `$${baseTotal.toFixed(2)}`;
+    summaryTotal.textContent = `≈ $${baseTotal.toFixed(2)}`;
+    syncCouponSelectAction();
   };
 
   couponSelect.addEventListener('change', () => {
@@ -1013,7 +1227,115 @@ if (
     }
     applyCoupon();
   });
-  removeCouponBtn.addEventListener('click', removeCoupon);
+
+  couponSelectAction.addEventListener('mouseenter', () => {
+    if (couponSelect.value) {
+      couponSelectActionIcon.textContent = 'close';
+    }
+  });
+
+  couponSelectAction.addEventListener('mouseleave', () => {
+    couponSelectActionIcon.textContent = 'expand_more';
+  });
+
+  couponSelectAction.addEventListener('click', (event) => {
+    if (!couponSelect.value) return;
+    event.preventDefault();
+    removeCoupon();
+  });
+
+  syncCouponSelectAction();
 }
+
+const modelPreviewModal = document.getElementById('modelPreviewModal');
+const modelPreviewImage = document.getElementById('modelPreviewImage');
+const modelPreviewTitle = document.getElementById('modelPreviewTitle');
+const modelPreviewStage = document.getElementById('modelPreviewStage');
+const modelPreviewTriggers = document.querySelectorAll('[data-model-preview-trigger]');
+const modelPreviewCloseTargets = document.querySelectorAll('[data-model-preview-close]');
+let previewScale = 1;
+let previewRotateX = -8;
+let previewRotateY = 18;
+let isPreviewDragging = false;
+let previewPointerX = 0;
+let previewPointerY = 0;
+
+function applyModelPreviewTransform() {
+  if (!modelPreviewImage) return;
+  modelPreviewImage.style.transform = `scale(${previewScale}) rotateX(${previewRotateX}deg) rotateY(${previewRotateY}deg)`;
+}
+
+function resetModelPreviewTransform() {
+  previewScale = 1;
+  previewRotateX = -8;
+  previewRotateY = 18;
+  applyModelPreviewTransform();
+}
+
+function openModelPreview(src, title) {
+  if (!modelPreviewModal || !modelPreviewImage || !modelPreviewTitle) return;
+  modelPreviewImage.src = src;
+  modelPreviewTitle.textContent = `3D Preview - ${title}`;
+  resetModelPreviewTransform();
+  modelPreviewModal.classList.remove('hidden');
+  modelPreviewModal.classList.add('flex');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModelPreview() {
+  if (!modelPreviewModal || !modelPreviewImage) return;
+  modelPreviewModal.classList.add('hidden');
+  modelPreviewModal.classList.remove('flex');
+  modelPreviewImage.src = '';
+  resetModelPreviewTransform();
+  document.body.style.overflow = '';
+}
+
+modelPreviewTriggers.forEach((trigger) => {
+  trigger.addEventListener('click', () => {
+    openModelPreview(trigger.getAttribute('data-preview-src'), trigger.getAttribute('data-preview-title') || 'Model Preview');
+  });
+});
+
+modelPreviewCloseTargets.forEach((target) => target.addEventListener('click', closeModelPreview));
+
+if (modelPreviewStage) {
+  modelPreviewStage.addEventListener('pointerdown', (event) => {
+    isPreviewDragging = true;
+    previewPointerX = event.clientX;
+    previewPointerY = event.clientY;
+  });
+
+  modelPreviewStage.addEventListener('wheel', (event) => {
+    event.preventDefault();
+    previewScale = Math.max(0.72, Math.min(2.4, previewScale - event.deltaY * 0.0012));
+    applyModelPreviewTransform();
+  }, { passive: false });
+
+  modelPreviewStage.addEventListener('dblclick', () => {
+    resetModelPreviewTransform();
+  });
+}
+
+window.addEventListener('pointermove', (event) => {
+  if (!isPreviewDragging) return;
+  const deltaX = event.clientX - previewPointerX;
+  const deltaY = event.clientY - previewPointerY;
+  previewPointerX = event.clientX;
+  previewPointerY = event.clientY;
+  previewRotateX = Math.max(-45, Math.min(45, previewRotateX - deltaY * 0.12));
+  previewRotateY += deltaX * 0.18;
+  applyModelPreviewTransform();
+});
+
+window.addEventListener('pointerup', () => {
+  isPreviewDragging = false;
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && modelPreviewModal && !modelPreviewModal.classList.contains('hidden')) {
+    closeModelPreview();
+  }
+});
 </script>
 </body></html>

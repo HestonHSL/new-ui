@@ -117,31 +117,17 @@
     </style>
 </head>
 <body class="bg-surface text-on-surface antialiased min-h-screen flex flex-col relative overflow-x-hidden">
-<nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-2xl border-b border-outline-variant/30 shadow-[0_2px_15px_rgba(0,0,0,0.03)] flex justify-between items-center px-10 h-20">
-<div class="flex items-center gap-8">
-<span class="text-xl font-bold tracking-tighter text-on-background italic font-headline cursor-pointer" onclick="window.location.href='/home-v3.html'">NEBULA TECH</span>
-</div>
-<div class="flex items-center gap-6">
-<button onclick="window.location.href='quote-manage.html'" class="bg-primary text-white font-headline px-6 py-2 rounded-xl text-xs font-bold uppercase tracking-widest active:scale-95 duration-200 ease-out shadow-lg shadow-primary/20">
-                Instant Quote
-            </button>
-<div class="flex gap-4">
-<span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">shopping_cart</span>
-<a href="/"><span class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:text-primary transition-colors">account_circle</span></a>
-</div>
-</div>
-</nav>
 <!-- Geometric Overlay Background -->
 <div class="fixed inset-0 mesh-background pointer-events-none"></div>
 <div class="fixed inset-0 bg-gradient-to-tr from-surface via-transparent to-primary/5 pointer-events-none"></div>
 <!-- Main Content Canvas -->
-<main class="flex-grow flex items-center justify-center p-6 pt-28 md:p-12 md:pt-32 relative z-10">
+<main class="flex-grow flex items-center justify-center p-6 md:p-12 relative z-10">
 <!-- Login Card Container -->
 <div class="w-full max-w-5xl grid grid-cols-1 lg:grid-cols-12 bg-surface-container-lowest rounded-xl shadow-[0_12px_40px_rgba(28,27,27,0.06)] overflow-hidden">
 <!-- Left Side: Editorial Branding & 3D Visual -->
 <div class="hidden lg:flex lg:col-span-5 bg-surface-container-low p-12 flex-col justify-between relative overflow-hidden">
 <div class="relative z-20">
-<span class="text-blue-700 font-bold tracking-[0.2em] text-xs uppercase mb-4 block">Industrial Precision</span>
+<span class="mb-4 block text-xs font-bold tracking-[0.08em] text-blue-700">Industrial Precision</span>
 <h1 class="font-headline text-4xl font-extrabold tracking-tight text-on-surface leading-tight">
                         Foundry3D
                     </h1>
@@ -155,7 +141,7 @@
 <span class="material-symbols-outlined" data-icon="view_in_ar">view_in_ar</span>
 </div>
 <div>
-<p class="text-xs font-bold text-on-surface uppercase tracking-widest">Active Render</p>
+<p class="text-xs font-bold tracking-[0.08em] text-on-surface">Active Render</p>
 <p class="text-xs text-on-surface-variant">V-Core 3.5 Engine</p>
 </div>
 </div>
@@ -204,7 +190,7 @@
 <!-- Login Form -->
 <form action="#" class="space-y-6" id="login-form" method="POST">
 <div class="space-y-1.5">
-<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider ml-1" for="email">Email or Username</label>
+<label class="ml-1 text-xs font-bold tracking-[0.08em] text-on-surface-variant" for="email">Email or Username</label>
 <div class="relative group">
 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline group-focus-within:text-primary transition-colors">
 <span class="material-symbols-outlined text-lg" data-icon="alternate_email">alternate_email</span>
@@ -214,8 +200,8 @@
 </div>
 <div class="space-y-1.5">
 <div class="flex justify-between items-center px-1">
-<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider" for="password">Password</label>
-<a class="text-[11px] font-bold text-primary hover:text-primary-container transition-colors uppercase tracking-tight" href="#" id="forgot-password-link">Forgot Password?</a>
+<label class="text-xs font-bold tracking-[0.08em] text-on-surface-variant" for="password">Password</label>
+<a class="text-[11px] font-bold tracking-[0.04em] text-primary transition-colors hover:text-primary-container" href="#" id="forgot-password-link">Forgot Password?</a>
 </div>
 <div class="relative group">
 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline group-focus-within:text-primary transition-colors">
@@ -239,7 +225,7 @@
 <div aria-hidden="true" class="absolute inset-0 flex items-center">
 <div class="w-full border-t border-outline-variant/20"></div>
 </div>
-<div class="relative flex justify-center text-xs uppercase tracking-widest font-bold">
+<div class="relative flex justify-center text-xs font-bold tracking-[0.08em]">
 <span class="bg-surface-container-lowest px-4 text-outline">Or continue with</span>
 </div>
 </div>
@@ -274,14 +260,14 @@
 </header>
 <form action="#" class="space-y-6" id="reset-password-form">
 <div class="space-y-1.5">
-<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider ml-1" for="reset-email">Email</label>
+<label class="ml-1 text-xs font-bold tracking-[0.08em] text-on-surface-variant" for="reset-email">Email</label>
 <div class="relative group">
 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline group-focus-within:text-primary transition-colors"><span class="material-symbols-outlined text-lg">alternate_email</span></div>
 <input class="block w-full pl-11 pr-4 py-3.5 bg-surface-container-low border-0 rounded-lg text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all placeholder:text-outline/50" id="reset-email" placeholder="Please enter your registered email" type="email" required/>
 </div>
 </div>
 <div class="space-y-1.5">
-<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider ml-1" for="reset-code">Verification Code</label>
+<label class="ml-1 text-xs font-bold tracking-[0.08em] text-on-surface-variant" for="reset-code">Verification Code</label>
 <div class="flex gap-2">
 <div class="relative group flex-grow">
 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline group-focus-within:text-primary transition-colors"><span class="material-symbols-outlined text-lg">dialpad</span></div>
@@ -291,7 +277,7 @@
 </div>
 </div>
 <div class="space-y-1.5">
-<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider ml-1" for="reset-new-password">New Password</label>
+<label class="ml-1 text-xs font-bold tracking-[0.08em] text-on-surface-variant" for="reset-new-password">New Password</label>
 <div class="relative group">
 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline group-focus-within:text-primary transition-colors"><span class="material-symbols-outlined text-lg">lock_reset</span></div>
 <input class="block w-full pl-11 pr-12 py-3.5 bg-surface-container-low border-0 rounded-lg text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all placeholder:text-outline/50" id="reset-new-password" placeholder="Please enter new password" type="password" required/>
@@ -299,7 +285,7 @@
 </div>
 </div>
 <div class="space-y-1.5">
-<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider ml-1" for="reset-confirm-password">Confirm Password</label>
+<label class="ml-1 text-xs font-bold tracking-[0.08em] text-on-surface-variant" for="reset-confirm-password">Confirm Password</label>
 <div class="relative group">
 <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline group-focus-within:text-primary transition-colors"><span class="material-symbols-outlined text-lg">lock_reset</span></div>
 <input class="block w-full pl-11 pr-12 py-3.5 bg-surface-container-low border-0 rounded-lg text-sm text-on-surface focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all placeholder:text-outline/50" id="reset-confirm-password" placeholder="Please confirm new password" type="password" required/>
@@ -334,7 +320,7 @@
 <form action="#" class="space-y-4" id="register-form" method="POST">
 <!-- Email -->
 <div class="space-y-1.5">
-<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider ml-1" for="reg-email">
+<label class="ml-1 text-xs font-bold tracking-[0.08em] text-on-surface-variant" for="reg-email">
 <span class="text-error mr-1">*</span>Email
                         </label>
 <div class="relative group">
@@ -343,7 +329,7 @@
 </div>
 <!-- Username -->
 <div class="space-y-1.5">
-<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider ml-1" for="reg-username">
+<label class="ml-1 text-xs font-bold tracking-[0.08em] text-on-surface-variant" for="reg-username">
 <span class="text-error mr-1">*</span>Username
                         </label>
 <div class="relative group">
@@ -352,7 +338,7 @@
 </div>
 <!-- Password -->
 <div class="space-y-1.5">
-<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider ml-1" for="reg-password">
+<label class="ml-1 text-xs font-bold tracking-[0.08em] text-on-surface-variant" for="reg-password">
 <span class="text-error mr-1">*</span>Password
                         </label>
 <div class="relative group">
@@ -364,7 +350,7 @@
 </div>
 <!-- Confirm Password -->
 <div class="space-y-1.5">
-<label class="text-xs font-bold text-on-surface-variant uppercase tracking-wider ml-1" for="reg-confirm-password">
+<label class="ml-1 text-xs font-bold tracking-[0.08em] text-on-surface-variant" for="reg-confirm-password">
 <span class="text-error mr-1">*</span>Confirm Password
                         </label>
 <div class="relative group">
@@ -387,7 +373,7 @@
 <div aria-hidden="true" class="absolute inset-0 flex items-center">
 <div class="w-full border-t border-outline-variant/20"></div>
 </div>
-<div class="relative flex justify-center text-[10px] uppercase tracking-widest font-bold">
+<div class="relative flex justify-center text-[10px] font-bold tracking-[0.08em]">
 <span class="bg-surface-container-lowest px-4 text-outline">Or continue with</span>
 </div>
 </div>
@@ -415,19 +401,6 @@
 </div><!-- /flip-container -->
 </div><!-- /perspective -->
 </main>
-<!-- Page Footer (Minimal) -->
-<footer class="p-8 relative z-10 flex flex-col md:flex-row justify-between items-center gap-4 max-w-screen-2xl mx-auto w-full">
-<div class="flex items-center gap-6">
-<a class="text-[10px] font-bold uppercase tracking-widest text-outline hover:text-primary transition-colors" href="#">Terms of Service</a>
-<a class="text-[10px] font-bold uppercase tracking-widest text-outline hover:text-primary transition-colors" href="#">Privacy Policy</a>
-<a class="text-[10px] font-bold uppercase tracking-widest text-outline hover:text-primary transition-colors" href="#">GDPR</a>
-</div>
-<div class="text-[10px] font-bold uppercase tracking-widest text-outline/50">
-            © 2024 Foundry3D Industrial. All Rights Reserved.
-        </div>
-</footer>
-
-
 <script>
     // Handle Login/Register Flip Navigation
     const flipContainer = document.getElementById('flip-container');

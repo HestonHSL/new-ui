@@ -44,12 +44,12 @@ export default function App() {
               transition={{ duration: 0.5 }}
             >
               {/* Header Section */}
-              <header className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+              <header className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
                 <div className="max-w-xl">
-                  <h1 className="text-[2.5rem] font-extrabold tracking-tighter text-on-background mb-4">
+                  <h1 className="mb-3 text-[2rem] font-bold tracking-tight text-on-background">
                     Welcome back, Alex.
                   </h1>
-                  <p className="text-slate-500 text-[1.0625rem] leading-relaxed">
+                  <p className="text-[0.95rem] leading-relaxed text-slate-500">
                     Your curation projects are currently moving through the pipeline. 
                     You have 3 actions requiring immediate attention today.
                   </p>
@@ -57,7 +57,7 @@ export default function App() {
               </header>
 
               {/* Stats Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+              <div className="mb-10 grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-4">
                 <StatCard 
                   icon={ShoppingCart} 
                   label="In Cart" 
@@ -144,14 +144,14 @@ export default function App() {
           className={cn("flex flex-col items-center group", activeTab === 'overview' ? "text-primary" : "text-slate-400")}
         >
           <Home size={24} className={cn(activeTab === 'overview' && "fill-primary/20")} />
-          <span className="text-[10px] font-bold uppercase mt-1">Home</span>
+          <span className="mt-1 text-[10px] font-bold">Home</span>
         </button>
         <button 
           onClick={() => setActiveTab('orders')}
           className={cn("flex flex-col items-center group", activeTab === 'orders' ? "text-primary" : "text-slate-400")}
         >
           <PackageIcon size={24} className={cn(activeTab === 'orders' && "fill-primary/20")} />
-          <span className="text-[10px] font-bold uppercase mt-1">Orders</span>
+          <span className="mt-1 text-[10px] font-bold">Orders</span>
         </button>
         <div className="relative -mt-10">
           <button className="bg-primary text-white p-4 rounded-full shadow-lg shadow-primary/40 active:scale-90 transition-all">
@@ -163,14 +163,14 @@ export default function App() {
           className={cn("flex flex-col items-center group", activeTab === 'coupons' ? "text-primary" : "text-slate-400")}
         >
           <Ticket size={24} className={cn(activeTab === 'coupons' && "fill-primary/20")} />
-          <span className="text-[10px] font-bold uppercase mt-1">Coupons</span>
+          <span className="mt-1 text-[10px] font-bold">Coupons</span>
         </button>
         <button 
           onClick={() => setActiveTab('settings')}
           className={cn("flex flex-col items-center group", activeTab === 'settings' ? "text-primary" : "text-slate-400")}
         >
           <Settings size={24} className={cn(activeTab === 'settings' && "fill-primary/20")} />
-          <span className="text-[10px] font-bold uppercase mt-1">Settings</span>
+          <span className="mt-1 text-[10px] font-bold">Settings</span>
         </button>
       </nav>
     </div>

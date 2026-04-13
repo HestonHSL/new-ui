@@ -54,7 +54,7 @@ interface FormData {
 }
 
 const inputCls = "w-full bg-slate-50 border border-outline rounded-xl px-4 py-3 text-sm text-on-background outline-none focus:ring-2 ring-primary/20 focus:border-primary transition-all placeholder:text-slate-400";
-const labelCls = "block text-xs font-bold uppercase tracking-widest text-slate-500 mb-1.5";
+const labelCls = "mb-1.5 block text-xs font-bold tracking-[0.08em] text-slate-500";
 
 export const AddressPage = () => {
   const [activeTab, setActiveTab] = useState('shipping');
@@ -121,10 +121,10 @@ export const AddressPage = () => {
       {/* Header */}
       <header className="flex flex-col md:flex-row justify-between items-end gap-6">
         <div className="max-w-xl">
-          <h1 className="text-[2.5rem] font-extrabold tracking-tighter text-on-background mb-4">
+          <h1 className="mb-3 text-[2rem] font-bold tracking-tight text-on-background">
             Address Management.
           </h1>
-          <p className="text-slate-500 text-lg leading-relaxed">
+          <p className="text-[0.95rem] leading-relaxed text-slate-500">
             Manage your shipping and billing locations for a seamless checkout experience.
           </p>
         </div>
@@ -146,7 +146,7 @@ export const AddressPage = () => {
                 key={tab}
                 onClick={() => setActiveTab(tab)}
                 className={cn(
-                  "text-sm font-bold uppercase tracking-widest transition-all relative py-2",
+                  "relative py-2 text-sm font-bold tracking-[0.04em] transition-all",
                   activeTab === tab ? "text-primary" : "text-slate-400 hover:text-slate-600"
                 )}
               >
@@ -178,9 +178,9 @@ export const AddressPage = () => {
                 >
                   <div className="flex justify-between items-start mb-6">
                     <div className="flex items-center space-x-4">
-                      <h3 className="text-2xl font-black text-on-background tracking-tight">{addr.name}</h3>
+                      <h3 className="text-xl font-bold tracking-tight text-on-background">{addr.name}</h3>
                       {addr.isDefault && (
-                        <span className="bg-primary-container text-primary px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter">
+                        <span className="rounded-full bg-primary-container px-3 py-1 text-[10px] font-black tracking-[0.08em] text-primary">
                           Default
                         </span>
                       )}
@@ -236,7 +236,7 @@ export const AddressPage = () => {
                         {addr.isDefault && <Check size={14} className="text-white" strokeWidth={3} />}
                       </div>
                       <span className={cn(
-                        "text-xs font-bold uppercase tracking-widest transition-colors",
+                        "text-xs font-bold tracking-[0.08em] transition-colors",
                         addr.isDefault ? "text-primary" : "text-slate-400 group-hover/check:text-slate-600"
                       )}>
                         Set as Default
@@ -248,7 +248,7 @@ export const AddressPage = () => {
 
               {/* Pagination */}
               <div className="flex items-center justify-between pt-8">
-                <p className="text-xs font-bold text-slate-400 uppercase tracking-widest">
+                <p className="text-xs font-bold tracking-[0.08em] text-slate-400">
                   Showing 1-{addresses.length} of {addresses.length} items
                 </p>
                 <div className="flex items-center space-x-4">
@@ -332,7 +332,7 @@ export const AddressPage = () => {
 
                 {/* Recipient */}
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-primary mb-4">Recipient Information</p>
+                  <p className="mb-4 text-[10px] font-black tracking-[0.08em] text-primary">Recipient Information</p>
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <label className={labelCls}>First Name *</label>
@@ -363,7 +363,7 @@ export const AddressPage = () => {
 
                 {/* Address */}
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-primary mb-4">Shipping Address</p>
+                  <p className="mb-4 text-[10px] font-black tracking-[0.08em] text-primary">Shipping Address</p>
                   <div className="space-y-4">
                     <div>
                       <label className={labelCls}>Country / Region *</label>

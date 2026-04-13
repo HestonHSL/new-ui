@@ -27,10 +27,10 @@ export const SettingsPage = () => {
       {/* Header */}
       <header className="flex flex-col md:flex-row justify-between items-end gap-6">
         <div className="max-w-xl">
-          <h1 className="text-[2.5rem] font-extrabold tracking-tighter text-on-background mb-4">
+          <h1 className="mb-3 text-[2rem] font-bold tracking-tight text-on-background">
             Account Settings.
           </h1>
-          <p className="text-slate-500 text-lg leading-relaxed">
+          <p className="text-[0.95rem] leading-relaxed text-slate-500">
             Manage your personal information, security preferences, and account details.
           </p>
         </div>
@@ -48,7 +48,7 @@ export const SettingsPage = () => {
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
                 className={cn(
-                  "flex items-center space-x-2 text-sm font-bold uppercase tracking-widest transition-all relative py-2",
+                  "relative flex items-center space-x-2 py-2 text-sm font-bold tracking-[0.04em] transition-all",
                   activeTab === tab.id ? "text-primary" : "text-slate-400 hover:text-slate-600"
                 )}
               >
@@ -90,9 +90,9 @@ export const SettingsPage = () => {
                   </button>
                 </div>
                 <div className="text-center md:text-left space-y-2">
-                  <h3 className="text-2xl font-black text-on-background tracking-tight">hongxin hong</h3>
+                  <h3 className="text-xl font-bold tracking-tight text-on-background">hongxin hong</h3>
                   <p className="text-slate-400 font-medium">@kriseoooooo@gmail.com</p>
-                  <button className="text-primary text-xs font-bold uppercase tracking-widest hover:underline pt-2">
+                  <button className="pt-2 text-xs font-bold tracking-[0.08em] text-primary hover:underline">
                     Change Avatar
                   </button>
                 </div>
@@ -101,7 +101,7 @@ export const SettingsPage = () => {
               {/* Profile Form */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">First Name</label>
+                  <label className="ml-1 text-[10px] font-black tracking-[0.08em] text-slate-400">First Name</label>
                   <input 
                     type="text" 
                     defaultValue="hongxin"
@@ -109,7 +109,7 @@ export const SettingsPage = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Last Name</label>
+                  <label className="ml-1 text-[10px] font-black tracking-[0.08em] text-slate-400">Last Name</label>
                   <input 
                     type="text" 
                     defaultValue="hong"
@@ -117,7 +117,7 @@ export const SettingsPage = () => {
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1 flex items-center">
+                  <label className="ml-1 flex items-center text-[10px] font-black tracking-[0.08em] text-slate-400">
                     Email Address <span className="text-red-500 ml-1">*</span>
                   </label>
                   <div className="relative">
@@ -131,7 +131,7 @@ export const SettingsPage = () => {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Phone Number</label>
+                  <label className="ml-1 text-[10px] font-black tracking-[0.08em] text-slate-400">Phone Number</label>
                   <div className="relative">
                     <Phone className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300" size={18} />
                     <input 
@@ -142,7 +142,7 @@ export const SettingsPage = () => {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Gender</label>
+                  <label className="ml-1 text-[10px] font-black tracking-[0.08em] text-slate-400">Gender</label>
                   <div className="relative">
                     <UserCircle2 className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300" size={18} />
                     <select className="w-full pl-12 pr-5 py-4 bg-slate-50 border border-outline rounded-xl text-sm font-bold text-on-background outline-none appearance-none focus:ring-2 ring-primary/20 transition-all">
@@ -154,7 +154,7 @@ export const SettingsPage = () => {
                   </div>
                 </div>
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Company</label>
+                  <label className="ml-1 text-[10px] font-black tracking-[0.08em] text-slate-400">Company</label>
                   <div className="relative">
                     <Building2 className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300" size={18} />
                     <input 
@@ -165,7 +165,7 @@ export const SettingsPage = () => {
                   </div>
                 </div>
                 <div className="md:col-span-2 space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1">Job Title</label>
+                  <label className="ml-1 text-[10px] font-black tracking-[0.08em] text-slate-400">Job Title</label>
                   <div className="relative">
                     <Briefcase className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-300" size={18} />
                     <input 
@@ -194,7 +194,7 @@ export const SettingsPage = () => {
             >
               <div className="bg-white border border-outline rounded-2xl p-8 space-y-8">
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1 flex items-center">
+                  <label className="ml-1 flex items-center text-[10px] font-black tracking-[0.08em] text-slate-400">
                     Current Password <span className="text-red-500 ml-1">*</span>
                   </label>
                   <div className="relative">
@@ -214,7 +214,7 @@ export const SettingsPage = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1 flex items-center">
+                  <label className="ml-1 flex items-center text-[10px] font-black tracking-[0.08em] text-slate-400">
                     New Password <span className="text-red-500 ml-1">*</span>
                   </label>
                   <div className="relative">
@@ -234,7 +234,7 @@ export const SettingsPage = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <label className="text-[10px] font-black uppercase tracking-widest text-slate-400 ml-1 flex items-center">
+                  <label className="ml-1 flex items-center text-[10px] font-black tracking-[0.08em] text-slate-400">
                     Confirm New Password <span className="text-red-500 ml-1">*</span>
                   </label>
                   <div className="relative">
